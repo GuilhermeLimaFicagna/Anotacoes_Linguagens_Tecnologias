@@ -1,0 +1,61 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANOTAÇÕES DAS AULAS DE GIT E GITHUB ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONTEXTUALIZAÇÃO E O QUE É GIT ☺
+
+- Git de forma simples podemos dizer que é um Software de Controle de Versões
+
+- Já o GitHub podemos dizer que é uma plataforma de rede social para um programador.
+
+- juntos podemos dizer que esses dois são ferramentas de " versionamento " ou traduzindo versões de códigos. Resumindo:
+	
+	- Usar Git/GitHub é como ter um histórico completo e organizado do seu projeto, com um botão mágico de desfazer, além de permitir colaboração sem bagunça. Melhor do que confiar em 'versao_final_final_agora_vai.zip'!
+
+- Basicamente " Git " faz versionamento de código local e o " GuiHub " faz Disponibilização dos códigos
+
+- E o que é Versionamento(vcs): Versionamento é o processo de registrar e gerenciar todas as alterações feitas em um projeto ao longo do tempo. Toda vez que você modifica um arquivo seja corrigindo um bug, adicionando uma nova funcionalidade, ou até ajustando uma linha de código o versionamento guarda um histórico dessas mudanças.
+
+	- Cada mudança salva vira um commit, como um ponto de controle.
+
+	- Além do commit temos o push, que é a ação de pegarmos o versionamento que temos na nossa maquina e jogarmos no repositório remoto. E o contrario disso chamamos de pull, que é quando pegamos nosso versionamento e mandamos do repositório remoto para o local
+
+- Git também tem, o que chamamos muito de ramificações, muito usado em equipes, serve para separar grupos de assuntos diferentes e depois juntar no final.
+
+--------------------------------------------------------------------------------------------------->
+
+O QUE É GUIHUB ☺
+
+- Podemos dizer que ele é um repositório remoto, mas ele é mais que isso. Ele é como se fosse uma plataformas para devs, como se se fosse uma comunidade.
+
+	- Características: Repositórios ilimitados, Hospedagem de código-fonte, Características de rede social, GitHub Pages(Que é a hospedagem de HTML grátis), forks(Que é uma cópia de um repositório que fica na sua conta. Ele permite que você faça alterações sem afetar o repositório original.)
+
+- Repositórios: São pastas que colocamos os projetos, é um jeito de divulgar e guardar o código.
+
+--------------------------------------------------------------------------------------------------->
+
+HISTÓRIA DO GIT E DO GITHUB ☺
+
+- Quem venho primeiro ? : Basicamente dps de uma briga, onde o cara que fez o linux, criou o Git em 2005. E oq quer dizer o nome Git, significa: apenas três lestra do alfabeto  
+
+- E o GitHub, foi criado em 2018
+
+--------------------------------------------------------------------------------------------------->
+
+ORDEM DAS COISAS ☺
+
+- Sempre começar fazendo um commit para indicar o versionamento, depois fazer o push, para ir do repositório local para o remorto. Caso o commit seja no repositório remoto, então temos que fazer o pull, que joga nosso reposiório remoto para o local.
+
+--------------------------------------------------------------------------------------------------->
+
+aula 07
+
+
+
+
+
+
+
+
+
+

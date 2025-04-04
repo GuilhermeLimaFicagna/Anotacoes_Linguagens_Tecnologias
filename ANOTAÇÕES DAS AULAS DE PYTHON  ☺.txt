@@ -1,0 +1,868 @@
+ANOTAÇÕES DAS AULAS DE PYTHON  ☺
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+PRIMEIRA PARTE - INTODUÇÃO ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TIPOS PRIMITIVOS 
+
+- str: é toda palavra ou nmr que vai entre nas aspas ''
+  ex: "olá" ou "90"
+ 
+- int: é todo numero real
+  ex: 78
+
+- float: numero com ponto ou que contem o "." flutuante
+  ex: 0.78 
+
+- bool: fala se é "True" or "False"
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+OPERADORES ARITIMETICOS ☺
+
+ + : Soma                  ** : Potenciação                                   ordem de precedência: 1° ()
+ - : Subritração           // : Divisão inteira                                                     2° **
+ * : Multiplicação         %  : Resto da divisão                                                    3° *, /, // e %
+ / : Divisão                                                                                        4° + e -
+ 
+    * Para potencia podemos usar tanto " ** " como " pow(x,y) "
+
+   *  end =" "  : serve para não quebra a linha
+
+   *  \n ' : serve para quebrar a linha
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+JEITOS DE CALCULAR RAIZ ☺
+
+  - raiz quadrada tem dois jeito o com " math.sqrt() " e " x ** (1/2) "
+
+  - raiz cubica tomos como fazer assim " x ** (1/3)
+
+  - E para fazer qualquer outro tipo de raiz fazemos sucessivamente (1/4), (1/5), (1/6), (1/7)...
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MODULOS ☺
+
+- É como se fosse uma função que importa outra variáveis e comandos que estão em uma " Biblioteca " . E para usarmos isso, precisamos usar o comando " Import " e logo em seguida colocarmos qual Biblioteca queremos para conseguirmos usar os comandos e variáveis necessários.
+
+EX (usando doces como ex): import doce
+               * import é o comando       * doce é a Biblioteca
+
+ - e se quisermos importar só uma função única de algum Biblioteca, podemos usar outro comando: primeiro colocamos " from " depois o Biblioteca que queremos " doce " depois o comando import " import " e por fim a variável que queremos do Biblioteca " chocolate ".
+- ficando assim :  from doce import chocolate 
+
+ * quando fomos escolher  a função que queremos, podemos apertar Ctrl + Espaço. Vão aparecer todas as funções
+
+- se quisemos abaixar alguma Biblioteca, podemos ir no site do Python para importa-la 
+
+ * no Python uma LISTA fica entre CONCHETES "[]"
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MANIPULANDO CADEIAS DE TEXTO ☺
+
+- É como se fosse uma frase, só que ela é considerada como uma "CADEIA DE CARACTERES" ou tbm "STR que significa STRING", em qualquer linguagem de programação é assim. 
+
+- no computador quando eu fazemos uma variavel str como por exemplo: str('Aulas de python'). Ela é armazenada em um espaço da memória do computador so que cada letra da str vai ser armasenada em micro espaços, com cada espaço desse resebendo uma indice:
+     * O espaço tbm conta                 °A ¹u ²l ³a ⁴s  ⁵_  ⁶d ⁷e  ⁸_  ⁹p ¹°y ¹¹t ¹²h ¹³o ¹⁴n
+
+- Sabendo disso podemos aprender varias operações como por exemplo:
+
+
+
+     *OPERAÇÃO FATIAMENTO DE STRING*
+
+- Basicamente conseguimos pegar tais pedaços de uma string
+
+1º tipo: pega uma letra so
+ex: print('Aulas de python'[9]) ficaremos com "y"  ou  print('Aulas de python'[7]) ficaremos com "_"
+
+2º tipo: pega de um ponto ao outro
+ex: print('Aulas de python'[0:3]) ficaremos com "Aul"  ou  print('Aulas de python'[0:4]) ficaremos com "Aula"
+    '
+3° tipo: vai pulando certo numero de letras                                                                                              * importante sabermos que o ultimo numero 
+ex: print('Aulas de python'[1:15:2]) ficaremos com "ua epto"                                                                               que colocarmos nos [] vai ser excluido
+
+4° tipo: parecido com o segundo tipo, mas a diferença e que nesse omitoimos o inicio assim sempre comesando do indice "0"
+ex: print('Aulas de python'[:4]) ficaremos com "Aula"
+
+5° tipo: parecido com o quarto tipo, mas a diferença e que nesse eu omito o final assim sempre terminando no ultimo indice 
+ex: print('Aulas de python'[0:]) ficaremos com "Aula de python"
+
+6º tipo: parecido com o quarto tipo, mode diferente de fazer, que faz a string inteira
+ex: print('Aulas de python'[0::2]) ficaremos com "Alsd yhn"
+
+--------------------------------------------------------------------------------------------------->
+
+     *OPERAÇÃO ANALISE*
+
+- Basicamente conseguimos identificar certas coisas de um string
+
+1º função len: imprime o comprimento da frase (fala quanto micros espaços tem)
+ex: print(len('Aulas de python')) ficaremos com "15"
+
+2º função .count: imprime o tanto de vezes que aparece o valor que foi colocado nas ' '
+ex: print(('Aulas de python'.count('o'))) ficaremos com "1"
+
+3º função .find: ele vai imprimir em que momento a frase colocada entre ' ' começa
+ex: print('Aulas de python e tbm de gatos'.find('de')) ficaremos com "6" por conta que "de" começa a partir do micro espaço 6
+
+se colocarmos uma string que não existe na frase ex: print('Aulas de python e tbm de gatos'.find('gui')) ficaremos com "-1"
+
+4º função "x" in "y": ele confere se "x" existe em "y", e retorna True. Se "x" não existe em "y", ele retorna False 
+ex: print('python' in 'Aulas de python') ficaremos com "True"
+ex: print('gui' in 'Aulas de python') ficaremos com "False"
+
+--------------------------------------------------------------------------------------------------->
+
+     *OPERAÇÃO TRANSFORMAÇÃO*
+
+- Ele meche na string
+
+1º função .replace: Ele troca uma palavra ou frase da string
+ex: print('Aulas de python'.replace('Aulas', 'vagas')) ficaremos com "vagas de python"
+
+2º função .upper(): Deixa a string toda em maiúsculas 
+ex: print('Aulas de python'.upper()) ficaremos com "AULAS DE PYTHON"
+
+3º função .lower(): Deixa a string toda em minúsculas 
+ex: print('AULAS DE PYTHON'.lower()) ficaremos com "aulas de python"
+
+4º função .capitalize(): Deixa toda a string em minúsculas, menos a primeira letra 
+ex: print('aulas de python'.capitalize()) ficaremos com "Aulas de python"
+
+5º função .title(): Deixa toda a string em minúsculas, menos a primeira letra de cada frase digamos
+ex: print('AULAS DE PYTHON'.title()) ficaremos com "Aulas De Python"
+
+6º função .strip: tira todos os espaços do começo e do final de uma string
+ex: print('     Aulas de python  '.strip()) ficaremos com "Aulas de python"
+Tambêm temos a variação do left e rigth, que acrecentamos um l ou r depois do ponto, para tratarmos a string de modo diferente                             * Muitas funções no python que tratão strings
+ex do left: print('     Aulas de python  '.lstrip()) ficaremos com "Aulas de python  "                                                                                 tem a variação .l e .r
+ex do rigth: print('     Aulas de python  '.rstrip()) ficaremos com "     Aulas de python"
+
+--------------------------------------------------------------------------------------------------->
+
+     *OPERAÇÃO DIVISÃO*
+
+- Divide as strings
+
+1º função .split(): ele faz uma divisão na string, considerando os espaços. e também renova os indices de cada divisão feita
+ex: print('Aulas de python'.split()) ficaremos com "['Aulas', 'de', 'python']"
+
+e os indices ficarão dessa forma:
+
+                         °A ¹u ²l ³a ⁴s  °d ¹e  °p ¹y ²t ³h ⁴o ⁵n
+
+e tbm colocadas em espaços diferentes em uma lista, dessa forma:
+ 
+                         _ _ _ _ _ _ _ _ _ _    _ _ _ _ _ _     _ _ _ _ _ _ _ _ _ _ _ _  
+                         .                 .    .          .    .                      .
+                         . °A ¹u ²l ³a ⁴s  .    .  °d ¹e   .    .  °p ¹y ²t ³h ⁴o ⁵n   .            <--------- Dentro de uma lista
+                         .                 .    .          .    .                      .
+                         _ _ _ _ _ _ _ _ _ _    _ _ _ _ _ _     _ _ _ _  _ _ _ _ _ _ _ _
+
+                              espaço 0º          espaço 1º           espaço 2º 
+
+
+
+     *OPERAÇÃO DIVISÃO*
+
+- Faz junção das strings
+
+1º função 'x'.join'y': usando o resultado da divisão de função que vimos, podemos usar a função .join nela
+ex:
+	n1 = 'Aulas de python'.split()         
+	print('☺'.join(n1))
+                                      ficaremos com "Aulas☺de☺python"
+
+- se fizermos a mesma coisa sem usarmos a função ".split()" com nossa string " 'Aulas de python' " e usamos so a função ".join" o resultado sera diferente: 
+ex:
+	print('☺'.join('Aulas de python')) ficaremos com "A☺u☺l☺a☺s☺ ☺d☺e☺ ☺p☺y☺t☺h☺o☺n"
+	
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONDIÇÕES ☺
+
+- Basicamente é um método que podemos usar para escolher caminhos dentro do nosso programa. se perguntamos a uma pessoa a quanto tempo ela tem um carro, ela pode falar idades diferentes certo? temos como base que se ela tiver o carro a mais de sete anos, consideramos ele um carro velho. Ja se ele tiver menos que sete ou sete anos de existência, consideraremos ele um carro novo.
+percebemos que houveram dois caminhos de resposta, um que ele é velho e outro que ele é novo. Por conta disso iremos usar em nosso programa a função "if" and "else"
+vamos fazer uma resolução do que foi dito:
+
+1° tempo = int(input('quantos anos seu carro tem?  '))
+2° if tempo <= 7:
+3° 	print('Seu carro é bem novo')
+4° else:
+5°	print('Seu carro é velho')
+
+- se digitarmos 5 ficaremos com: "Seu carro é bem novo"                                                                  * Todo comando que estiver colado do lado esquerdo da tela 
+                                                                                                                             sempre será executado. Já os que estão com endentação
+explicando cada linha:                                                                                                                    podem ser executados ou não
+
+1° linha: nessa linha estão colando um valor na variável "tempo" 
+
+2° linha: diz que, se a variável "tempo" for menor ou igual a sete, vai escrever a linha três
+
+3° linha: como essa linha tem endentação ela vai ser uma das coisas que pode ou não ser executada, e como digitamos cinco ela vai ser a linha executada
+                           * nesse caso de "if and else" chamamos essa linha de "bloco True"
+
+4° linha: diz que, se não, vai escrever a linha 5  
+
+5° linha: como essa linha tem endentação ela vai ser uma das coisas que pode ou não ser executada, e como foi digitado cinco, essa linha não vai ser executada
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CORES NO TERMINA ☺
+
+PADRÃO ANSI: ele é um padrão de normalização interacional, e nele temos o "Escape sequence", que é oq vai dar cor ao nosso programa. 
+
+- tudo que tiver dentro do ANSI, começara com uma contra barra "\" e logo em seguida um código. Como queremos representar uma cor no Python, começaremos com "\033[m" e entre o "[" e o "m" colocaremos o código da cor, que é separada em 3 partes: o "Style", "Text" e "Back". style é o tipo do texto, text é a cor, e back é a cor de fundo do texto. Ficaremos com: \033[0;33;44m
+
+- "Style", "Text" e "Back" tem suas variações e essas são elas:
+
+	Style: existem vários códigos pra estilo, mas os que mais dão certo são:
+	
+	- 0: não muda nada
+
+	- 1: deixa em negrito
+
+	- 4: vai sublinhar o texto
+
+	- 7: vai inverter a cor do texto com a do back
+
+	Text: vai ser a cor que a letra vai aparecer. E esse código sempre vai ter como de começo o "3" e na segunda casa decimal ficaremos de "0 a 7" 
+
+	- 30: cor branca
+
+	- 31: cor vermelha
+
+	- 32: cor verde
+
+	- 33: cor amarela
+
+	- 34: cor azul
+
+	- 35: cor roxa
+
+	- 36: cor ciano
+
+	- 37: cor cinca
+
+	Back: vai ser a cor do fundo da letra, como se fosse o contorno dela. E esse código sempre vai ter como de começo o "4" e na segunda casa decimal ficaremos de "0 a 7" 
+
+	- 40: cor branca
+
+	- 41: cor vermelha
+
+	- 42: cor verde
+
+	- 43: cor amarela
+
+	- 44: cor azul
+
+	- 45: cor roxa
+
+	- 46: cor ciano
+
+	- 47: cor cinca
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SEGUNDA PARTE - CONDIÇÕES E ITERAÇÕES ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONDIÇÕES ANINHADAS ☺
+
+- Aninhada basicamente significa colocar uma coisa dentro da outra, e quando pegamos estruturas de condicionais e colocamos elas uma dentro da outra, podemos chamar isso de condições aninhadas.
+
+- Em uma situação hipotética, digamos que uma pessoa tem três caminhos para seguir, um reto outro pra direita e o ultimo para esquerda. Percebemos que são três caminhos, logo não podemos usar so "if and else", agora teremos que usar "elif", que é a junção de if e else.
+resolução:
+
+1° possibilidade = input('Escolha o caminho que quer seguir: ').upper().strip()
+2° if possibilidade == "RETO":
+3°     print('muito legal parabéns ☺')
+4° elif possibilidade == 'ESQUERDA':
+5°     print('muito legal legal parabéns ☺')                                                              *o elif pode ser usado diversas vezes.
+6° else:
+7°	print('legal parabéns ☺')
+
+- se escrevermos "Esquerda", ficaremos com "muito legal legal parabéns ☺".
+
+1° linha: nessa linha estão colando um valor na variável "possibilidade" 
+
+2° linha: diz que, se a variável "possibilidade" for igual a ESQUERDA, vai escrever a linha três
+
+3° linha: como essa linha tem endentação ela vai ser uma das coisas que pode ou não ser executada, e como foi digitado ESQUERDA, essa linha não vai ser executada
+
+4° linha: diz que, se não, se, vai escrever a linha 5  
+
+5° linha: linha: como essa linha tem endentação ela vai ser uma das coisas que pode ou não ser executada, e como digitamos ESQUERDA ela vai ser a linha executada
+
+6° linha: linha: diz que, se não, vai escrever a linha 7 
+
+7° linha: como essa linha tem endentação ela vai ser uma das coisas que pode ou não ser executada, e como foi digitado ESQUERDA, essa linha não vai ser executada
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LAÇOS DE REPETIÇÃO (ESTRUTURA DE REPETIÇÃO COM VARIAVEL DE CONTROLE) ☺
+
+- Basicamente é uma estrutura de repetição que ao em vez de escrevermos varias vezes uma certa coisa, usamos um laço de repetição para facilitar as coisa, e ele é representado como "for".
+
+- Podemos usar o exemplo da impressão de números do 0 ao 30. Ao em vez de escrevermos número por número na tela, usamos o laço de repetição "for". vejamos:
+
+1° for i in range(0, 31):
+2° 	print('i')                      - Ficaremos com: os números de 0 a 30.
+
+- Na linha 1°: temos o "for" que é o laço de repetição, temos o "i" que é nosso contador e depois temos o "in range(0 , 31):", que é nosso intervalo. Se quisermos imprimir os números de 0 a 2000, colocaremos no intervalo dessa maneira: "range(0, 2001)"
+
+- Na linha 2°: imprime os números na tela.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ESTRUTURA DE REPETIÇÃO WHILE (ESTRUTURA DE REPETIÇÃO COM TESTE LÓGICO) ☺
+
+- Quando temos a estrutura de repetição "for", nos temos a noção de quantos laços(repetições) queremos. Mas e quando não sabemos quantos laços queremos? Nessa situação usamos while(que significa enquanto). Basicamente enquanto não chegarmos no resultado que queremos o laço ira se repetir e repetir até que o resultado que estamos esperando seja alcançado.
+
+- Para intender melhor podemos usar o exemplo de uma senha. Enquanto a senha estiver errada, o laço se repetira até a senhas estar certa. veja:
+
+	1° s = 'gatito'
+	2° r = ''
+	3° while s != r:
+	4° 	r = input('Digite senha: ')
+	5° 	if r != s:                                                              
+	6°          print('Senha incorreta...')
+	7° print('-+' * 10)
+	8° print('Parabéns, você acertou!')
+
+
+1° linha: Atribui a variável "s" a string "gatito"
+
+2° linha: Atribui a variável "r" a string "" . No caso nada, só está definindo como uma string
+
+3° linha: Enquanto "s" for diferente de "r" faça o loop
+
+4° linha: Entrada de dados, no caso, a senha
+
+5° linha: Se minha variável "r" for diferente de  "s" então mostre:
+
+6° linha: Impressão na tela da mensagem "Senha incorreta...". em seguida repetição do loop
+
+7° linha: Separação só pra estética
+
+8° linha: Caso nosso "r" for igual a "s (gatito)" no teste lógico, teremos a mensagem "Parabéns, você acertou!"
+
+--------------------------------------------------------------------------------------------------->
+
+LAÇO WHILE INFINITO E INTERRONPENDO O LAÇO DE REPITIÇÃO WHILE
+
+- Em Python temos como fazer um laço rodar infinitamente, e para isso usamos " while True ". Veja o exemplo a seguir:
+
+1° n1 = 1
+2° n1 = 2
+3° while True:
+4° 	print(n1 + n2)
+
+- Basicamente fica imprimindo "2" infinitamente, mas se quisermos parar esse laço?
+  Nesse caso usaremos o "break" que parara o laço. Veja a seguir:
+
+1° n1 = 1
+2° n2 = 1
+3° contador = 0
+4° while True:
+5°     print(n1 + n2)
+6°     contador +=1
+7°     if contador == 10:
+8°         break
+
+- Ficaríamos com impressão de 10 números "2", já que pedimos que quando nosso contador for igual a "10", ele encerra o laço de repetição.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TERCEIRA PARTE - ESTRUTURAS COMPOSTAS ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	*VARIÁVEIS COMPOSTAS (TUPLAS)*
+
+- É uma variável que pode ser atribuída mais de uma característica, assim tendo mais de definições. 
+
+- Nas tuplas usamos só " () "
+
+- o função "sorted" deixa as coisas em ordem.
+
+- o função "del" apaga uma variável já definida.
+
+- tuplas suas variáveis que não podem ser mudadas. São imutaveis
+--------------------------------------------------------------------------------------------------->
+
+	*VARIÁVEIS COMPOSTAS [LISTAS]*
+
+- Nas variáveis atribuídas como listas, não usaremos mais " () " mais sim " [] "
+
+- Mesmo conceito das tuplas, variáveis que podem ser atribuída mais de uma característica.
+
+- Diferente das tuplas as listas podem ser mudadas tranquilamente. 
+
+- podemos adicionar novas características a lista usando o método .append()
+
+	- se quisermos adicionar uma nova característica em um lugar especifico, usamos o método .insert()
+
+- Para apagar características usamos o função "del"
+
+	- De outra forma seria usando o método ".pop()". que serve para remover com base no índice.
+	
+	- Também usando o método ".remove()". que serve para remover com base no conteúdo.
+
+- Se temos uma lista com números bagunçados, podemos usar o método ".sort()"
+	
+	- E se quisermos na ordem inversa, usamos um parâmetro, no caso: ".sort(reverse=True)"
+
+--------------------------------------------------------------------------------------------------->
+
+	*VARIÁVEIS COMPOSTAS [[LISTAS COMPOSTAS]]*
+
+- listas compostas são listas que contêm outros objetos como seus elementos, incluindo outras listas.
+
+- para melhor compreensão veja o exemplo: 
+
+	1° comidas = ['arroz', 'feijão', 'batata']
+	2° sucos = ['limão', 'manga', 'morango']
+	3° cardapio = list()
+	4° cardapio.append(comidas)
+	5° cardapio.append(sucos)
+	6° print(cardapio[0][2])
+
+- Dentro da variável cardápio vamos ter dois elementos "0 sendo comidas" e "1 sendo sucos". Basicamente assim: [['arroz', 'feijão', 'batata'], ['limão', 'manga', 'morango']]
+
+- Quando printamos o cardapio so que especificando qual elemento queremos, no caso [0][2] teremos "batata".
+
+- Isso ocorre por conta que " [0] " é a lista comida (['arroz', 'feijão', 'batata']) e " [2] " na comida é o elemento "batata"
+
+
+--------------------------------------------------------------------------------------------------->
+
+	*VARIÁVEIS COMPOSTAS {DICIONÁRIOS}*
+
+- Nas variáveis atribuídas como Dicionários, não usamos nem " () " e também " [] ", mas sim " {} " 
+
+- Dicionários são semelhantes a tuplas e também a listas, mas a principal diferença é que podemos ter índices literários. Assim podendo personalizar os índices, veja as seguir:  
+
+
+	- Quando temos uma variável "dados" sendo atribuida lista, nos temos que cada posição de um elemento, te seu indice, como podemos ver aqui: 
+
+		                ___________  ___________
+		               |           ||           |
+		               | Guilherme ||    18     |   <------ elementos
+		               |___________||___________|
+		               |     0     ||     1     |
+		               |___________||___________|   <------ índices
+
+	- Para declararmos a variável "dados" sendo um dicionário, podemos usar dois métodos. um deles sendo o método " dict() " ou quando formos declarar a variável, invés de colocarmos [] dando a intender ser uma lista, dessa vez iremos colocar {} ao declarar a variável, dando a intender que é um dicionário. 
+ 
+	- Para colocarmos os dados dentro da estrutura e também colocando os índices, fazemos assim:
+
+			identificador do elemento			
+				    ↑
+			dados = {'nome':'Guilherme', 'idade':'18'}
+					    ↓
+				 	  valor
+
+
+	- Agora não vamos mais ter índice 0 ou 1. Agora iremos ter índices nome e idade, veja as seguir: 
+
+		                ___________  ___________
+		               |           ||           |
+		               | Guilherme ||    18     |   <------ elementos
+		               |___________||___________|
+		               |   nome    ||   idade   |
+		               |___________||___________|   <------ índices literários 
+
+
+	- Agora se quisermos colocar um novo elemento, não usaremos " .append ", mas faremos dessa forma
+
+		- dados['sexo'] = masculino
+
+	- Agora nossa variável dados ficara da seguinte maneira:
+
+	                ___________  ___________  ___________
+	               |           ||           ||           |
+	               | Guilherme ||    18     || masculino |   <------ elementos
+	               |___________||___________||___________|
+	               |   nome    ||   idade   ||   sexo    |
+	               |___________||___________||___________|   <------ índices literários 
+
+
+	- Agora se quisermos remover um elemento, usaremos o comando "del" 
+
+		- del dados['idade'] 
+
+	- Agora nossa variável dados ficara da seguinte maneira:
+
+		                ___________  ___________
+		               |           ||           |
+		               | Guilherme || masculino |   <------ elementos
+		               |___________||___________|
+		               |   nome    ||   sexo    |
+		               |___________||___________|   <------ índices literários 
+
+
+- Os índices na verdade são oque chamamos de "keys" quando se trata de dicionários, A podemos acessar valores, chaves ou itens. Intenda melhor cada um as seguir:
+
+	- Valores: são todos os valores da nossa variável "dados" ou seja os elementos dela. Se dermos um " print(dados.values()) ", ficaremos na tela com todos os valores que estão armazenados na variável dado. desse modo:
+
+	                ___________  ___________  ___________
+	               |           ||           ||           |
+	               | Guilherme ||    18     || masculino |   <------ todos os valores.
+	               |___________||___________||___________|
+
+
+	- Keys: são todos os keys da nossa variável "dados" ou seja os índices dela. Se dermos um " print(dados.keys()) ", ficaremos na tela com todos as keys que estão armazenados na variável dado. desse modo:
+
+	                ___________  ___________  ___________
+	               |   nome    ||   idade   ||   sexo    |
+	               |___________||___________||___________|   <------ todas as keys
+
+
+	- Itens: é tudo que esta na variável, tanto os valores, quanto as keys. Se dermos um " print(dados.Items()) ", ficaremos na tela com todos os valores e as keys que estão armazenados na variável dado. desse modo:
+
+	                ___________  ___________  ___________
+	               |           ||           ||           |
+	               | Guilherme ||    18     || masculino |   <------ Todos os valoer
+	               |___________||___________||___________|
+	               |   nome    ||   idade   ||   sexo    |
+	               |___________||___________||___________|   <------ Todas as keys 
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNCÕES ☺
+
+- Podemos dizer que funções em Python são como rotinas, blocos de código reutilizáveis que ajudam a organizar e reduzir a repetição em programas.
+
+	- basicamente em todo código usamos funções como por exemplo: print(), len(), input(), int() e muito mais... Essas funções já existem no Python, mas podemos criar uma função que se adeque a nossa necessidade
+
+- Imaginamos que em tal situação, usamos muito linhas para separar uma coisa da outra, como por exemplo um título do seu conteúdo ou uma conta de matemática da outra. Quando montamos um titulo fazemos dessa forma:
+
+	1° print('-' * 30)
+	2° print('CADASTRO-PESSOA')
+	3° print('-' * 30)
+
+	- Na tela ficaríamos com essa impressão:
+
+		------------------------------
+		CADASTRO-PESSOA
+		------------------------------
+
+- Pensando em uma maneira não precisar ficar tão redundante, tendo que escrever vario prints no código, usamos o que chamamos de " def " que no caso significa Definição de função.
+
+- Vamos ver um exemplo de uso de " def " para deixar nosso código que mostra um titulo mais otimizado:
+
+	1° def linha():
+	2° 	print('-' * 30)
+	3° 
+	4° 
+	5° linha()
+	6° print('CADASTRO-MORADOR')
+	7° linha()
+
+	- Na tela ficaríamos com essa impressão:
+
+		------------------------------
+		CADASTRO-MORADOR
+		------------------------------
+
+
+1° linha: Temos nosso " def " indicando que " linha() " vai ser uma função. Sempre temos que colocar os parênteses " () " para indicar que é uma função.
+
+2° linha: Corpo da função ou bloco de código da função, pois é onde está a lógica que a função " linha() " executa.
+
+3° e 4° linha: linhas que fazem uma separação visual, para melhor leitura do código.
+
+5° linha: Chama a função " linha() " para que seja mostrada a linha.
+
+6° linha: Imprime o titulo no caso " CADASTRO-MORADOR ".
+
+7° linha: Chama a função " linha() " para que seja mostrada a linha.
+
+--------------------------------------------------------------------------------------------------->
+
+	*FUNÇÕES COM PARÂMETROS(☺)*
+
+- Também temos as funções com parâmetros, basicamente é uma função que aceita valores externos para executar sua lógica. 
+
+- Esses parâmetros são variáveis que definimos entre os parênteses na declaração da função. Para melhor compreensão vamos ver um exemplo:
+
+	1° def mensagem(msg): 
+	2°     print('-=' * 20)
+	3°     print(f'{m:^40}')
+	4°     print('-=' * 20)
+	6°
+	7°
+	8° nome = input('Digite seu nome: ') 
+	9° mensagem(nome)
+
+	- Se o msg que oi digitado fosse igual a 'Guilherme', Na tela ficaríamos com essa impressão:
+
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        	       Guilherme                
+	-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+1° linha: Temos nosso " def " indicando que " mensagem() " vai ser uma função. E dentro do parênteses temos nosso paramento " msg " que indica que a função receberá um valor quando for chamada.
+
+2° linha: Print para que seja mostrada a linha.
+
+3° linha: Aqui, a função imprime o valor da variável msg, que será o nome digitado pelo usuário.
+
+4° linha: Print para que seja mostrada a mais uma linha e também para seja finalizada a função de forma visualmente destacada.
+
+6° e 7° linha: linhas que fazem uma separação visual, para melhor leitura do código.
+
+8° linha: A função input() solicita que o usuário digite um nome, e o valor digitado é armazenado na variável nome.
+
+9° linha: Chama a função mensagem() passando o valor armazenado na variável " nome " (o nome digitado) como argumento. Isso faz com que a função execute a impressão da linha decorativa e o nome digitado.
+
+
+--------------------------------------------------------------------------------------------------->
+
+RETORNO DE VALORES (return)
+
+- O return é uma instrução utilizada em funções para devolver um valor ao ponto onde a função foi chamada. Quando o return é executado, a função encerra sua execução imediatamente e retorna o valor especificado. Esse valor pode ser armazenado em uma variável, deferente de funções que não retornam nada. veja um exemplo de return:
+
+	1° def soma(x=0, y=0, z=0):
+	2°     s = x + y + z
+	3°     return s
+	4° 
+	5° res = soma(10, 5, 10)
+	6° print(f'A soma é {res}')
+
+- É suas principais características são: 
+	
+	- Poder retornar qualquer tipo de dado (números, strings, listas, objetos, etc.)
+
+	- Se não houver um return, a função retorna None por padrão
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INTERACTIVE HELP
+
+- É uma ferramenta embutida usada para acessar a documentação de módulos, funções, classes, métodos e objetos. Ele exibe informações úteis sobre a funcionalidade do elemento consultado.
+
+- Podemos acessar essa funcionalidade de duas formas. tanto pelo terminal do PyCharm quanto por u  arquivo " .py " dado run nele.
+	
+	- No terminal ou no arquivo .py, colocaremos " help() " e logo em seguida, colocamos o nome de alguma método função etc...
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DOCSTRING
+
+- Uma Docstring (ou Documentation String) é uma string usada para documentar módulos, funções, classes e métodos em Python. Elas ajudam a descrever o propósito do código e como utilizá-lo.
+
+- Se criarmos um método saudação(), dentro dele termos que ter uma documentação, veja como fazer n exemplo a baixo:
+
+	1° def saudação(nome):
+	2°     """
+	3°     Mostra na tela uma saudação personalizada
+	4°     :param nome: nome da pessoa que ira receber a saudação
+	5°     :return: none
+	6°     """
+	7°     print(f'olá {nome}, tudo bem ?')
+
+
+- Por padrão para escrever a documentação de alguma coisa temos que colocar na segunda linha depois da " def ", três aspas duplas  """ e depois de escrever a documentação, mas três aspas duplas """ . Assim finalizando a documentação do nosso método saudação().
+
+- E para acessar nossa documentação usamos o método " help() ".
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+PARÂMETROS OPCIONAIS
+
+- Parâmetros opcionais são usados em funções quando queremos definir valores padrão para certos argumentos. Isso permite chamar a função sem precisar fornecer todos os parâmetros explicitamente.
+
+- Vamos criarmos um método soma() que dentro dele iremos ter 3 parâmetros, " a, b, c "
+
+	1° def somar(a, b, c):
+	2°     s = a + b
+	3°     print(s)
+
+- se colocarmos valores só nos parâmetros "a, b" e deixarmos o " c " vazio, teremos um erro. Para resolver isso podemos colocar nosso parâmetro " c " valendo igual a 0, como se fosse um jeito de dizer que esse é o valor padrão dele. Para fazer isso, fazemos desse jeito:
+
+	1° def somar(a, b, c=0):
+	2°     s = a + b
+	3°     print(s)
+
+
+- Podemos também podemos declarar uma valor padrão para nossa função saudação(). Dessa forma:
+
+	1° def saudação(nome='Desconhecido'):
+	2°     print(f'olá {nome}, tudo bem ?')
+
+- caso não seja digitado nada na tela ficaremos com: olá Desconhecido, tudo bem?
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ESCOPO DE VARIÁVEIS
+
+- O escopo de uma variável define onde ela pode ser acessada dentro do código. Em Python, existem diferentes tipos de escopo, que determinam a visibilidade e a vida útil das variáveis. Temos o " Escopo Local ", " Escopo Global ", " Escopo Enclosing (não local) " e o " Escopo Built-in (Embutido) "
+
+- Para entendermos o " Escopo Global " e o " Escopo Local " vamos analisar o  o código a seguir:
+
+	1° def teste(b):
+	2°     b += 4
+	3°     c = 2
+	4°     print(f'A dentro vale {a}')
+	5°     print(f'B dentro vale {b}')
+	6°     print(f'C dentro vale {c}')
+	7° 
+	8° a = 5
+	9° teste(a)
+	10° print(f'A fora vale {a}')
+
+- Variáveis declaradas fora de funções pertencem ao " Escopo Global " e podem ser acessadas de qualquer parte do código. Então a saída que teremos no primeiro print da função teste() será " 5 " e não " 9 ". Nove será o resultado do segundo print, por conta que " a " esta sendo um parâmetro para " b ".
+
+- Já as variáveis " b " e " c " te escopo diferente. Variáveis declaradas dentro de uma função pertencem ao " Escopo Local " e só podem ser acessadas dentro dessa função. se fizermos um print fora dessa maneira:
+
+	1° def teste(b):
+	2°     b += 4
+	3°     c = 2
+	4°     print(f'A dentro vale {a}')
+	5°     print(f'B dentro vale {b}')
+	6°     print(f'C dentro vale {c}')
+	7° 
+	8° a = 5
+	9° teste(a)
+	10° print(f'A fora vale {a}')
+	11° print(f'A fora vale {b}')
+	12° print(f'A fora vale {c}')
+ 
+- Teremos um erro, por conta que o escopo da variável " b " e " c " e local da função teste().
+
+- E se por acaso tivesse uma variável " a " declarada na função teste(). dessa forma:
+
+	1° def teste(b):
+	2°     a = 8
+	2°     b += 4
+	3°     c = 2
+	4°     print(f'A dentro vale {a}')
+	5°     print(f'B dentro vale {b}')
+	6°     print(f'C dentro vale {c}')
+	7° 
+	8° a = 5
+	9° teste(a)
+	10° print(f'A fora vale {a}')
+
+- De primeira mão achamos que como a variável " a " do codigo principal tem " Escopo Global " achamos que ela passara a valar " 8 ", mas na verdade não. O que acontece é que é criada uma nova variavel " a ", so que agora sendo do " Escopo Local ".
+
+- Então o resultado do primeiro print da função teste() será " 8 ". E o print de fora será " 5 ". O print de fora só seria " 8 " se antes do " a = 8 " colocássemos " global a " Assim modificando a variável que valia  " 5 " agora passa a valer " 8 ". e o print de fora terá resultado igual a  " 8 " também.
+
+--------------------------------------------------------------------------------------------------->
+
+- Agora falando sobre " Escopo Enclosing (não local) ", tratasse de quando uma variáveis que pertencem a um escopo intermediário, ou seja, não são nem globais nem locais. Ele ocorre quando uma função está dentro de outra (função aninhada), e a função interna pode acessar variáveis da função externa, mas não pode modificá-las diretament. Veja um exemplo a seguir:
+
+	1°  def externa():
+	2°      x = "Variável da função externa"
+	3°  
+	4°      def interna():
+	5°          y = "Variável da função interna"
+	6°          print(x)  # Acessando a variável do escopo enclosing
+	7°          print(y)  # Acessando variável do escopo local
+	8°      
+	9°      interna()
+	10° 
+	11°
+	12° externa()
+
+	- Nossa saída será:" Variável da função externa " e " Variável da função interna "
+
+--------------------------------------------------------------------------------------------------->
+
+- E por fim o mais simples " Escopo Built-in (Embutido) "
+
+- São variáveis e funções que já vêm definidas no Python, como print(), len(), sum(), etc. E podemoas usar em qualquer escopo.
+
+--------------------------------------------------------------------------------------------------->
+
+- O Python usa um Resumo da Hierarquia de Escopo (LEGB). Que segue uma ordem, que significa:
+
+	1° Local – Variáveis dentro de uma função.
+	2° Enclosing (Não Local) – Variáveis de funções externas.
+	3° Global – Variáveis declaradas no código principal.
+	4° Built-in – Funções e palavras-chave do próprio Python.
+
+- Se uma variável não for encontrada em um nível, o Python procura no próximo.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MODULOS E PACOTES ☺
+
+- Podemos começar contextualizando esse assunto com uma palavrinha que surgiu no inicio da década de 60. A " modularização ", que é uma técnica de programação que consiste em dividir um programa em partes menores e independentes, chamadas módulos. E eles tem os seguintes deveres:
+
+	- Cada módulo é responsável por uma funcionalidade específica,.
+
+	- Foco em dividir um programa grande.
+
+	- Facilitar a organização e a reutilização do código.
+
+	- Melhor manutenção e testagem do código.
+
+
+- Um exemplo que podemos dar de modularização é em um cenário em que temos 3 funções. Uma de descobrir o fatorial, outra de saber o dobro e outra de saber o triplo. Se colocássemos todas essas funcionas em um código iria ficar muito grande. Então podemos fazer o que chamamos de modularização e criar 2 arquivos um exclusivamente para as funções(uteis.py) e outro para o código em si(calc.py). Fazendo isso teremos:
+
+	- melhor organização.
+
+	- facilidade em manutenção.
+
+	- Ocultação de código.
+
+	- reutilização em outro projetos
+
+--------------------------------------------------------------------------------------------------->
+
+- PACOTES: Basicamente são utilizados quando a modularização não dá conta. Por exemplo um projeto com mais de 100 funções, Um arquivo.py Com mais de 100 funções iria ficar muito pesado, lento é difícil de navegar em busca de alguma função. Então a solução que temos para isto são os pacotes(packges)
+
+- Usando o mesmo exemplo de módulos, onde temos uma função fatorial e outras duas que multiplicam por dois e por três. Vamos imaginar que não poderíamos usar um arquivo.py para deixar essas funções porque está muito pesado, então faremos um diretório(Directory) especial chamado pacote(Packge). 
+
+- Antes de entendermos sobre os " Pacotes " temos que intender a diferença de uma diretório e uma pasta.
+
+	- Diretório: É simplesmente uma pasta comum no sistema de arquivos, que pode conter qualquer coisa — arquivos, outros diretórios, etc. Não tem nada de especial para o Python.
+
+	- Pacote: É um diretório que contém um arquivo especial chamado __init__.py. Esse arquivo pode estar vazio ou conter código de inicialização do pacote. A presença desse arquivo indica ao Python que aquele diretório deve ser 		  tratado como um pacote, permitindo que você importe módulos (arquivos .py) ou subpacotes contidos nele.
+
+- detro do nosso projeto(Modulo) agora teremos teremos um pacote chamado " uteis " e dentro dele teremos mais dois pacotes, o "calc_fat" e o "calc_multiplicacao" (lembrando que cada pacote desse vai ter o arquivo " __init__.py ", para que coloque a função que é desejada dentro do " __init__.py "). Desse modo:
+
+	  Modulos
+	     |
+	     uteis
+		|
+		calc_fat
+		   └ __int__.py
+		|
+		calc_multiplicacao
+		   └ __int__.py
+	     └__int__.py
+
+- Daí para podermos usar essas funções usamos o metodo de importação " import ".
+
+	- Então se quisermos calcular um fatorial usamos: from uteis import calc_fat
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+continuar em: curso de ptython #23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
