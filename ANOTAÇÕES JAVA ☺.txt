@@ -4,8 +4,7 @@ COMO FUNCIONA O JAVA? ☺
 
 - Como a linguagem "C", Java também vai precisar de um compilador, para que pega o código fonte do Java é transforma em número binário (chamado de bytecode) para depois passar pela JVM, "Java virtual machine" ou "Maquina virtual java".
 
-- existem dois momentos no desinvolvimento de java, basicamente existem pessoas que progaman java e pessoa que usam java. Para pessoas que querem apenas usar o java, vão usar o JRE, "Java Runtime environment" ou "Ambiente de execução java". Agora para pessoas que querem progamar em java, vão usar o JDK,  "Java Runtime environment" ou "Ambiente de execução java".
-
+- existem dois momentos no desenvolvimento de java, basicamente existem pessoas que programão java e pessoa que usam java. Para pessoas que querem apenas usar o java, vão usar o JRE, "Java Runtime environment" ou "Ambiente de execução java". Agora para pessoas que querem programar em java, vão usar o JDK,  "Java Development Kit" ou "Kit de Desenvolvimento Java".
 
 
 	JRE  "Java Runtime environment" ou "Ambiente de execução java"
@@ -16,15 +15,15 @@ COMO FUNCIONA O JAVA? ☺
 
 	- loader and verificador: o loudar é a parte interna do da JVM que vai carregar o bytecode na memória do computador. Ja o verificador vai verificar se esse código é executavel e sem ploblemas
 
-	- Interpretador and gerenciador: interpretador vai pegar o codigo em bytecode e transformar no código nativo da maquina. Ja o gerenciador de memória vai tratar como os códigos e as variaveis vão ser gerenciadas na memória da JVM
+	- Interpretador and gerenciador: interpretador vai pegar o código em bytecode e transformar no código nativo da maquina. Ja o gerenciador de memória vai tratar como os códigos e as variaveis vão ser gerenciadas na memória da JVM
 
 	- Compilador JIT "just in tempo" ou "tradução em tempo real": serve para ter um ganho de performace
 
-* Bibliotecas são APIs que poderam ser usados dentro do progama
+* Bibliotecas são APIs que poderão ser usados dentro do programa
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------->
 
-	JDK  "Java Runtime environment" ou "Ambiente de execução java"
+	JDK  "Java Development Kit" ou "Kit de Desenvolvimento Java"
 
 - é composto de quatro parte, a "JRE", "JavaLang", "Javatools" e "IDE"
 
