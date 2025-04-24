@@ -1,0 +1,45 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANOTAÇÕES SOBRE O CONCEITO CRUD ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- CRUD é um acrônimo que representa as quatro operações básicas usadas para manipular dados em um sistema de banco de dados ou aplicação:
+
+	||------------||-------||---------||----------------------------------------------||
+	||  Operação  || Sigla ||  Ação   ||                  Descrição                   ||
+	||------------||-------||---------||----------------------------------------------||
+	|| Criar      || C     || Create  || Adiciona novos dados no sistema.             ||
+	||------------||-------||---------||----------------------------------------------||
+	|| Ler        || R     || Read    || Recupera ou exibe dados do sistema.          ||
+	||------------||-------||---------||----------------------------------------------||
+	|| Atualizar  || U     || Update  || Modifica informações já existentes.          ||
+	||------------||-------||---------||----------------------------------------------||
+	|| Deletar    || D     || Delete  || Remove dados do sistema.                     ||
+	||------------||-------||---------||----------------------------------------------||
+
+- Cada operação do CRUD usa métodos HTTP em aplicações (especialmente APIs ou sistemas web) para que permitem que sistemas se comuniquem entre si. Veja os principais métodos utilizados:
+
+	||------------||--------||----------------||--------------------------------------------------------------||
+	||  Método    || Sigla  ||     Ação       ||                       Para que serve                         ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+	|| POST       ||   C    || Criar          || Envia novos dados para o servidor.                           ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+	|| GET        ||   R    || Ler            || Pega dados do servidor. Usado para exibir ou buscar dados.   ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+	|| PUT        ||   U    || Atualizar      || Atualiza todo o registro com novos dados.                    ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+	|| PATCH      ||   U    || Atualizar      || Modifica apenas campos específicos de um registro.           ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+	|| DELETE     ||   D    || Deletar        || Remove um registro do sistema ou banco de dados.             ||
+	||------------||--------||----------------||--------------------------------------------------------------||
+
+- Para melhor compreensão de cada método, segue descrição melhorada:
+
+	- POST: usado pra criar algo novo. Ex: enviar nome, e-mail e senha para cadastrar um usuário.
+
+	- GET: serve para ler dados. Ex: buscar a lista de produtos ou ver o perfil de um usuário.
+
+	- PUT: atualiza todo um registro. Ex: trocar todos os dados de um usuário.
+
+	- PATCH: atualiza parte dos dados. Ex: mudar só o e-mail do usuário.
+
+	- DELETE: como o nome já diz, apaga o registro.
