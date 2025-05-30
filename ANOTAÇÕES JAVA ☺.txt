@@ -599,7 +599,7 @@ ESTRUTURAS DE REPETIÇÃO ☺
 
 	ESTRUTURA DE REPETIÇÃO WHILE
 
-- A estrutura de repetição while executa um bloco de código repetidamente enquanto uma condição verdadeira. O loop só para quando a condição se torna falsa. Veja o exemplo as seguir:
+- A estrutura de repetição while executa um bloco de código repetidamente enquanto uma condição é verdadeira. O loop só para quando a condição se torna falsa. Veja o exemplo as seguir:
 
     1° Scanner gui = new Scanner(System.in);
     2° String senha = "gatinho123";
@@ -621,9 +621,9 @@ ESTRUTURAS DE REPETIÇÃO ☺
 
 - modificadores de laço servem para alterar o funcionamento da repetição. como por exemplo:
 	
-	- Modificador "continue": interrompe a iteração atual de um loop e pula para a próxima, no caso a primeira iteraçao do repetiçao, sem encerrar o loop completo.
+	- Modificador "continue": interrompe a iteração atual de um loop e pula para a próxima, no caso a primeira iteração do repetição, sem encerrar o loop completo.
 
-	- Modificador "break": invez de continuar a iteração, o break saí do laço, assim incerrando o loop.
+	- Modificador "break": invez de continuar a iteração, o break saí do laço, assim encerrando o loop.
 
 --------------------------------------------------------------------------------------------------->
 
