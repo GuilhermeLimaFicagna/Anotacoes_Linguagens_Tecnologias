@@ -613,6 +613,7 @@ ESTRUTURAS DE REPETIÇÃO ☺
     10°        } else {
     11°            System.out.println("Senha Correta");
     12°        }
+	13°     }    
 
 
 - Se a resposta digitada for Diferente da senha definida, ficaremos em loop até colocarmos a resposta correta, que no caso é "gatinho123".
