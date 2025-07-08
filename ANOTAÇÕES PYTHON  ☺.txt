@@ -844,25 +844,70 @@ MODULOS E PACOTES ☺
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-continuar em: curso de ptython #23
+TRATAMENTO DE ERROS E EXCEÇÕES ☺
+
+- Conceito que permite lidar com situações inesperadas (erros) durante a execução de um programa, sem que ele seja encerrado abruptamente.
+
+- ERRO (Error): Problemas mais graves, geralmente relacionados ao ambiente de execução, por exemplo: 
+	
+	- NameError: Quando escrevemos " primt("Olá") ", Temos um erro chamado " sintaxe ". Por conta de que a função se escreve " print() ", não com " m "
+
+- EXECEÇÃO (Exception): Situações imprevistas que podem ser tratadas no código, por exemplo:
+
+	- ZeroDivisionError: Quando tentamos dividir um número por zero " print(2 / 0) ", o nosso programa retorna uma erro ou melhor dizendo exceção. Por conta que na matématica não existe divisão por zero.
+
+	- Outro exemplo de Exception também seria o:
+
+		- ValueError: É quando tem erro de tipo primitivo. por exemplo " n = int(input('Digite um número: ')) ". Se digitarmos " dois " invés de " 2 ", teremos essa exceção.
+
+- E como podemos tratar esses " Exceptions " ? Com os comando " tyr " e " except ". normalmente ele funciona dessa maneira: 
+
+	 	1° try:
+		2°     <Bloco de código que pode vir a ocorrer um erro>
+		3° except < TipoDoErro >: 
+		4°     < Bloco de código que será executado se o erro acontecer >
 
 
+2° Linha: Aqui colocamos o bloco de código que pode vir a dar algum erro.
+
+3° Temos o " TipoDoErro ", que é o nome do erro em especifico. Exemplo: ZeroDivisionError, ValueError, etc.
+
+	- Um detalher importante é que podemos ter varios excepts
+
+4° código que será executado se o erro acontecer.
+
+--------------------------------------------------------------------------------------------------->
+
+- Temos outros dois comandos que fazem parte da sequência " try " e do " except ". Os comandos " else " e " finally ", que em muitos casos são opcionais(que não precisão ser usados para os cominado try e except darem certo). Veja:
+
+	- else: Quando falamos em estruturas condicionais o " else " é usado principalmente pra quando algo é falso, mas quando a situação  " exceção ", usamos ele pra quando as coisas dão certo. 
+
+	- finally: Acontece sempre. Independente de ter dado uma exceção ou não, o " finally " sempre vai ser mostrado na tela.
+
+- Para melhor compreensão desses quatro comandos, veja o exemplo abaixo utilizando-os:
+
+	1°  try:
+	2°      n1 = int(input("Digite o primeiro número: "))
+	3°      n2 = int(input("Digite o segundo número: "))
+	4°      dv = n1 / n2
+	5°  except ZeroDivisionError:
+	6°      print("Não existe divisão por zero")
+	7°  except ValueError:
+	8°      print("Não digite letras, apenas números")
+	9°  else:
+	10°     print(f"A divisão foi igual a: {dv}")
+	11° finally:
+	12°     print("Volte sempre")
 
 
+2°, 3° e 4° Linha: Bloco de código que pode vir a dar algum tipo de exceção.
 
+5° e 7° Linha: Exemplo dos tipos de erros que podem vir a ocorrer.
 
+9° Linha: Caso o programa não apresente nem um erro, o bloco indentado é executado.
 
+11° Linha: independente de ter ocorrido algum tipo de erro ou não, o bloco indentado sempre será executado
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FIM DAS ANOTAÇÕES DE PYTHON ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
