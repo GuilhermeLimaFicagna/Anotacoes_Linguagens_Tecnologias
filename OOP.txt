@@ -299,7 +299,52 @@ MÉTODOS GET E SET
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-falar sobre Polimorfismo e abstração ainda
+CLASSES ABSTRATAS ☺
+
+- Classes abstratas são classes que não podem ser instanciadas diretamente e servem como modelo para outras classes. Elas são utilizadas quando você deseja definir uma estrutura base (atributos e comportamentos) que será compartilhada entre várias subclasses, mas deixando que algumas partes sejam implementadas obrigatoriamente pelas classes filhas. Usando o exemplo usado em herança de classes, vamos intender melhor sobre esse conceito de classes abstrata:
+
+				Classe abstrata Pessoa 
+				    nome:
+				    idade:		<-- classe abstrata que tem o método abstrato, que obrigatoriamente
+				    rg:				      tem que ser herdado pelas classes filhas
+				    cpf:
+
+				    abstrato imprimirDados()
+
+				      |
+			______________|________________
+		       |      	 		       |
+		       |      	 		       |
+		
+		Classe Estagiário		Classe Funcionário 
+									       <-- classes filhas com o método que foi herdado da classes abstrata
+		    bolsaAuxilio()		    	salario()
+		    imprimirDados()			imprimirDados()
+		    
+
+
+- As principais características das classes abstratas são:
+
+	- Não podem ser instanciadas: Não podemos criar objetos diretamente de uma classe abstrata.
+
+	- Podem conter métodos abstratos: Métodos sem corpo (somente a assinatura), que obrigam as subclasses a implementá-los.
+
+	- São usadas para generalização: Servem para definir um comportamento padrão para várias classes relacionadas.
+
+
+- E podemos usar essas classes abstratas em algumas situações como por exemplo:
+
+	- Quando você tem um conceito genérico que não deve ser instanciado, mas precisa servir de base para outras classes.
+
+	- Quando quer forçar subclasses a implementar certos métodos, mas também oferecer métodos prontos.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+terminar falando de polimorfismo
+
+
+
+
 
 
 
