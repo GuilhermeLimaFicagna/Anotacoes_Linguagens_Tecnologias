@@ -1,0 +1,309 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ANOTAÇÕES SOBRE PROGRAMAÇÃO ORIENTADA A OBJETO (OOP) ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CLASSES E OBJETOS ☺
+
+- Dois conceitos fundamentais em programação orientada a objetos. Para começar a intender o conceito classes e objetos vamos começar usando um exemplo do mundo de futebol para ligar as coisas e ter melhor compreensão:
+
+	- Jogadores.. podemos dizer que eles tem suas características certo? Por exemplo: Nome, Cabelo, Número, Nacionalidade etc..
+
+		- Se pararmos para pensar temos um GRUPO de jogadores, e cada um desses jogadores tem seus ATRIBUTOS, Nome, cabelo..
+
+- Dessa forma podemos enxergar um novo conceito que é o de classe, que é um grupo de objetos e cada objeto tem sua característica, ou melhor, atributo. Para enxergarmos melhor podemos ver o exemplo abaixo:
+
+		Classe Jogador
+		    nome:
+		    cabelo:		
+		    número:
+		    nacionalidade:	
+			
+		- Agora que já temos os atributos da nossa classe vamos pegar 2 exemplos de jogadores, ou melhor dizendo, objetos dessa classe
+
+		    nome: Neymar jr
+		    cabelo: raspado	
+		    número: 10
+		    nacionalidade: Brasileira	
+
+		    nome: Cristiano Ronaldo 
+		    cabelo: curto	
+		    número: 7
+		    nacionalidade: Português
+
+		- Nesses dois exemplos podemos ver que Neymar e Cristiano são objetos da classe jogador
+
+- Sabendo disso podemos ver que, um objeto é uma INSTÂNCIA de uma classe, ou seja, Um objeto é um jogador real criado a partir da ideia de jogador. A classe é o conceito, o objeto é o jogador real.
+
+--------------------------------------------------------------------------------------------------->
+
+- Os objetos de uma classe também podem ter comportamentos. Que são ações que os objetos fazem ou sofrem, podemos chamar de MÉTODOS(). Para exemplificar podemos dizer que os jogadores da classe Jogador, tem ações como por exemplo passarBola() e também fazerGol(). Então nossa classe ficaria assim:
+
+		Classe Jogador
+		    nome:
+		    cabelo:		
+		    número:
+		    nacionalidade:		* Não é obrigatório, mas é uma boa pratica sempre declarar
+		                  		       atributos por primeiro e depois métodos *
+		    passarBola()
+		    fazerGol()
+
+
+- Desse modo concluímos que todo classe pode ter atributos(características) e métodos(ações). E que todo objeto é uma instancia da classe.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+RELAÇÕES ENTRE CLASSES ☺
+
+- Na Programação Orientada a Objetos (POO), os objetos e classes podem se relacionar de diferentes formas para representar melhor o mundo real e organizar o código de maneira mais eficiente. Entre os principais tipos de relação, temos:
+
+	- Herança: é um tipo a parte. 
+
+	- Associação, é o tipo mais genérico de relação entre classes. E que a partir dela, temos dois tipos mais específicos.
+
+		- Agregação: uma associação com vínculo mais fraco.
+
+		- Composição: uma associação com vínculo mais forte e de dependência total entre os objetos..
+
+- Cada uma dessas relações tem um papel importante na forma como as classes interagem entre si e como o sistema é estruturado.
+
+- Mas para entender melhor tudo isso, vamos começar pela Herança, que será o primeiro tipo de relação que vamos abordar.
+
+--------------------------------------------------------------------------------------------------->
+
+HERANÇA ENTRE CLASSES
+
+- A herança permite que uma classe (filha ou subclasse) herde atributos e métodos de outra classe (pai ou superclasse). Para enxergar essa hierarquia, vamos ver um exemplo onde temos uma Classe Estagiário e uma Classe Funcionário:
+	
+	- Vamos dizer que tanto o estagiário e o funcionário tem características como nome, idade, rg, cpf e que cada um tem uma comportamento. Sendo o do estagiário Bolso Auxilio e o do funcionário Salario, veja abaixo:
+
+
+		Classe Estagiário 
+		    nome:
+		    idade:		
+		    rg:
+		    cpf:
+
+		    bolsaAuxilio()
+
+		Classe Funcionário 
+		    nome:
+		    idade:
+		    rg:
+		    cpf:
+
+		    salario()
+
+
+- Como podemos ver, as duas classes tem o mesmo atributos, o que deixa redundante. Mas com o conceito de herança, isso muda. Como Estagiário e Funcionário são pessoas, podemos criar uma Classe Pessoa. E herdar esses atributos dela veja:
+
+	
+				Classe Pessoa 
+				    nome:
+				    idade:		<-- classe pai ou superclasse
+				    rg:
+				    cpf:
+
+				      |
+			______________|________________
+		       |      	 		       |
+		       |      	 		       |
+		
+		Classe Estagiário		Classe Funcionário 
+									    <-- classes filhas ou subclasses
+		    bolsaAuxilio()		    	salario()
+
+
+
+	- Então conseguimos perceber que tanto a Classe Estagiário quanto a Classe Funcionário estão adquirindo por HERANÇA os atributos da Classe Pessoa. se tivéssemos algum método na classe pessoa ele também seria herdado.
+
+
+- E as vantagens de usar o conceito de herança em oop são:
+
+	- Evita duplicação de código.
+
+	- Facilita a manutenção.
+
+	- Permite especialização: a subclasse pode adicionar ou sobrescrever comportamentos da superclasse.
+
+--------------------------------------------------------------------------------------------------->
+
+ASSOCIAÇÃO, COMPOSIÇÂO E AGREGAÇÃO ENTRE CLASSES
+
+- Associação é quando uma classe "conhece" outra classe e pode usar seus métodos ou acessar seus atributos. Vamos intender isso utilizando um exemplo:
+
+	- Vamos pensar em uma situação que teremos uma Classe Carro e outra Classe Motorista. E podemos dizer que um carro precisa de um motorista para ser conduzido. Daí surge a ideia de associação simples. Um até precisa de um motorista, mas o carro não vai deixar de existir se um motorista não dirigi-lo. Por isso falamos que eles tem uma associação simples:
+
+
+		|--------------------|     Associação simples     |--------------------|
+		|       Carro        |----------------------------|      Motorista     | 
+		|--------------------|				  |--------------------| 
+
+
+- Agora pensando no carro podemos dizer que ele precisa de um motor e rodas para funcionar não é? Por que sem as rodas ou motor ele não funciona. Daí surge a ideia de uma associação mais forte ou melhor dizendo Composição. Então agora vamos criar uma classe motor e roda
+
+
+						  |--------------------| 
+						  |        Roda        | 
+						  |--------------------| 
+							    |
+							    |   <- Associação por composição 
+						  	    |
+						  	    |
+						  	    |
+						  	    |
+|--------------------| Associação por composição  |--------------------|     Associação simples     |--------------------|
+|       Motor        |----------------------------|       Carro        |----------------------------|      Motorista     |
+|--------------------|				  |--------------------|			    |--------------------| 
+		
+
+	- Na Associação por composição na hora que o objeto Carro for criado, implica em que sejam criados também objeto Motor e objeto Roda.
+
+
+- Por fim ainda pensando no carro, podemos dizer que ele poderia ter um rádio, ou não também. Um carro não iria deixar de funcionar sem um rádio. Isso indica uma outra ideia, a de associação fraca ou melhor dizendo Agregação. Então por fim vamos criar uma Classe Rádio para concluir nosso exemplo.
+
+
+						  |--------------------| 
+						  |        Roda        | 
+						  |--------------------| 
+							    |
+							    |   <- Associação por composição 
+						  	    |
+						  	    |
+						  	    |
+						  	    |
+|--------------------| Associação por composição  |--------------------|     Associação simples     |--------------------|
+|       Motor        |----------------------------|       Carro        |----------------------------|      Motorista     |
+|--------------------|				  |--------------------|			    |--------------------| 
+							    |
+							    |
+						  	    |
+						  	    |
+						  	    |   <- Associação por agregação
+						  	    |
+						  |--------------------| 
+						  |       Rádio        | 
+						  |--------------------| 
+
+
+	- Na Associação por agregação na hora que o objeto Carro for criado, implica em que o objeto Rádio possa ser criado em outro momento ou não.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ENCAPSULAMENTO ☺
+
+- O encapsulamento consiste em esconder os detalhes internos de uma classe e proteger seus dados através de níveis de acesso. Esses dados só podem ser acessados e alterados utilizando getters e setters, que são métodos públicos que podem acessar e alterar dados de uma classe. Para entender melhor esse conceito de encapsulamento vamos ver sobre dois tópicos:
+
+	- níveis de acesso: usados para controlar o nível de acesso dos atributos, métodos e classes
+
+	- métodos getters e setters: métodos públicos usados para acessar ou modificar atributos private.
+
+--------------------------------------------------------------------------------------------------->
+
+NÍVEIS DE ACESSO
+
+- Como dito antes, níveis de acesso servem para nível de acesso dos atributos, métodos e classes. Mas quantos níveis existem? conceitualmente, os modificadores de acesso são apenas 4. Veja a seguir:
+ 
+	- Nível público(public): Método, atributo ou classe pode ser acessado de qualquer lugar, sem restrições. 
+
+		- Utilizado quando você deseja que outros desenvolvedores ou partes do seu código possam acessar diretamente um método ou atributo específico.
+
+	- Nível privado(private): O acesso é permitido somente dentro da própria classe onde o membro foi declarado. Nenhuma outra classe (nem mesmo subclasses) pode acessá-lo diretamente.
+
+		- Ideal para encapsular dados sensíveis ou que não devem ser modificados diretamente de fora
+
+	- Nível protegido(protected): Permite acesso dentro da própria classe, nas subclasses (mesmo que estejam em outros pacotes) e também dentro do mesmo pacote.
+
+		- Usado quando você quer permitir que classes filhas (herança) possam acessar ou sobrescrever o membro, mas ainda assim manter algum nível de proteção.
+
+	- Nível predefinido(default): Quando nenhum Nível de acesso é especificado, o acesso é permitido apenas dentro do mesmo pacote (em Java) ou namespace/módulo, dependendo da linguagem.
+
+		- Útil para manter membros visíveis só para componentes relacionados (mesmo grupo de classes). 
+
+
+- Para melhor visualização desses conceitos veja a tabela a segui:
+
+	|-------------------------------------||----------||-----------||-----------||-----------|
+	| Quem pode acessar:                  ||  public  || protected ||  default  ||  private  |
+	|-------------------------------------||----------||-----------||-----------||-----------|
+	| Mesma classe                        ||   Sim    ||   Sim     ||   Sim     ||   Sim     |
+	|-------------------------------------||----------||-----------||-----------||-----------|
+	| Mesmo pacote                        ||   Sim    ||   Sim     ||   Sim     ||   Não     |
+	|-------------------------------------||----------||-----------||-----------||-----------|
+	| Subclasse (outro pacote)            ||   Sim    ||   Sim     ||   Não     ||   Não     |
+	|-------------------------------------||----------||-----------||-----------||-----------|
+	| Outra classe qualquer               ||   Sim    ||   Não     ||   Não     ||   Não     |
+	|-------------------------------------||----------||-----------||-----------||-----------|
+
+
+--------------------------------------------------------------------------------------------------->
+
+MÉTODOS GET E SET
+
+- Esses dois métodos tem como função poder acessar ou modificar os atributos de nível privado de uma classe, garantindo o encapsulamento e maior controle sobre os dados. Para entender melhor veja as características de cada um:
+
+	- Getter(get): Usado para obter o valor de um atributo privado. Sempre retornando algum valor primitivo. Por conta de ser um método que nunca vai deixar de retornar algo.
+
+	- Setter(set): Usado para alterar o valor de um atributo privado. Geralmente não retorna valor primitivo. Porem pode ser usado para retornar algum valor de status, para indicar sucesso ou erro. Entre outros coisas.
+
+--------------------------------------------------------------------------------------------------->
+
+- Agora que entendemos sobre os dois principais pontos do encapsulamento, podemos dizer que. Encapsulamento é a ação de usar níveis de acesso para proteger os dados (atributos), permitindo acesso apenas por meio de métodos controlados (geralmente getters e setters), e ainda tendo uma lógica de modificação no setter, assim protegendo um dado de ser modificado de qualquer forma. Para entender melhor vamos ver um exemplo de encapsulamento:
+
+	- Vamos usar um pouco da sintaxe de Java para esse exemplo.
+
+	- Vamos imaginar uma Classe ContaBancaria, onde vamos ter uma característica privada que é a do saldo:
+
+
+		1° public class Estagiário {
+		3°     private double saldo; 
+		3° }
+
+
+	- E dentro dessa classe também vamos ter dois métodos públicos, um getter e um setter. Contendo no setter uma regra de validação.
+
+
+		1°  public class ContaBancaria {    // nossa classe
+		2°  
+		3°      private double saldo;       // atributo
+		4°  
+		5°      public double getSaldo() {  // Getter
+		6°          return saldo;
+		7°      }
+		8°  
+		9°      public void setSaldo(double valor) { // Setter
+		10°         if (valor >= 0) {                // if com validação
+		11°             saldo += valor;
+		14°         }
+		15°     }
+		16° }
+
+	- Agora indo para nossa classe principal, vamos fazer uma instancia da Classe ContaBancaria. Logo depois fazer alterações com o setter e depois mostrar na tela com getter.
+
+
+		1°  public class Main {
+		2°      public static void main(String[] args) {
+		3°          // Instanciando a classe
+		4°          ContaBancaria conta = new ContaBancaria();
+		5°  
+		6°          // Usando o método setter para colocar valor
+		7°          conta.setSaldo(10);
+		8°          conta.setSaldo(-10); // valor inválido, por conta de encapsulamento 
+		9°  
+		10°         // Exibindo o saldo com o getter
+		11°         System.out.println("Saldo atual: R$ " + conta.getSaldo());
+		12°     }
+		13° }
+
+
+- A linha 7° é a com a maior importância, no contexto de encapsulamento, por conta de ser ela que protege o atributo " saldo " de ser somado -10 a ele. Por conta da regra de validação. Daí vem o conceito de encapsulamento, que protege os atributos da classe, permitindo o acesso apenas por meio de métodos controlados. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+falar sobre Polimorfismo e abstração ainda
+
+
+
+
+
+
+
