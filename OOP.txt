@@ -487,44 +487,88 @@ CLASSES ABSTRATAS ☺
 	- Quando quer forçar subclasses a implementar certos métodos, mas também oferecer métodos prontos.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+INTERFACE ☺
 
+- Uma interface é como se fosse um contrato que define um conjunto de métodos (e, em algumas linguagens, constantes) que uma classe deve implementar. E Ela não contém implementação concreta dos métodos, apenas as assinaturas. A classe que implementa a interface é responsável por fornecer a lógica desses métodos. Veja em um exemplo em Java utilizando uma interface Animal e uma classe Cachorro:
+
+
+		1°  interface Animal {
+		2°      void fazerSom();
+		3°  }
+		4°  
+		5°  class Cachorro implements Animal {
+		6°      public void fazerSom() {
+		7°          System.out.println("O cachorro late");
+		8°      }
+		9°  }
+
+	- O método fazerSom() só vai realmente fazer som, quando implementamos o bloco de código na classe Cachorro.
+
+
+- As principais características das interfaces são:
+
+	- Não têm implementação completa. Normalmente, os métodos são abstratos (sem corpo).
+
+	- Não podem ser instanciadas
+
+	- Permitem múltipla implementação
+
+	- Definem comportamento padrão
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 POLIMORFISMO ☺
 
-- O conceito de polimorfismo, palavra com significado de " muitas formas " , pode permite que um mesmo método, função ou operador tenha diferentes comportamentos dependendo do contexto
+- O conceito de polimorfismo, palavra com significado de " muitas formas " , pode permite que um mesmo método, função ou operador tenha diferentes comportamentos dependendo do contexto. Para melhor compreensão vamos usar o exemplo usado em " Overriding (Sobrescrita) de métodos " que já tem um comportamento parecido com polimorfismo: 
+
+	- Vamos pensar um situação onde temos uma classe chamada FolhaPagamento, onde teremos nossa classe principal. dentro da classe FolhaPagamento vamos ter um método chamado imprimir(), que vai imprimir na tela os dados tanto de Estagiário e Funcionário.
 
 
+		1°  public class FolhaPagamento {
+		2°      public static void main(String[] args) {
+		3°          Estagiario est = new Estagiario("gui", 18, "aaaaaaa", "120129812", 1123.23);
+		4°          Funcionario fun = new Funcionario("bia", 18, "bbbbbbb", "12344656", 3123.23);
+		5°          // Imprimindo
+		6°          imprimir(est);
+		7°          imprimir(fun);
+		8°      }
+		9°      // Método que imprime os dados
+		10°     private static void imprimir(Estagiario n){
+		11°         System.out.println(n.imprimirDados()
+		12°         );
+		13°     }
+		14° }
 
 
+	- Quando rodamos esse código, vamos ter um erro. por conta que o método imprimir está tentando imprimir o objeto "fun", que é uma instancia da Classe Funcionário, que por via das regras é completamente diferente de uma instancia da classe Estagiário. Que é o que nosso método imprimir() aceita. Para resolvermos isso podemos notar que essas classes tem algo em comum, que é sua herança da Classe Pessoa. Então como parâmetro do método imprimir(), podemos colocar de parâmetro " Pessoa ". Veja:
 
 
+		1°  public class FolhaPagamento {
+		2°      public static void main(String[] args) {
+		3°          Estagiario est = new Estagiario("gui", 18, "aaaaaaa", "120129812", 1123.23);
+		4°          Funcionario fun = new Funcionario("bia", 18, "bbbbbbb", "12344656", 3123.23);
+		5°          // Imprimindo
+		6°          imprimir(est);
+		7°          imprimir(fun);
+		8°      }
+		9°      // Método que imprime os dados
+		10°     private static void imprimir(Pessoa n){
+		11°         System.out.println(n.imprimirDados()
+		12°         );
+		13°     }
+		14° }
 
 
+	- Depois dessa alteração feita, nosso código não ira dar mais erro. Esse comportamento é o que chamamos de polimorfismo(ou também, verdadeiro polimorfismo).
 
 
+- As principais características do polimorfismo são:
 
+	- Flexibilidade e Reuso: Permite escrever código mais genérico, que funciona com várias classes diferentes.
 
+	- Facilita manutenção: Alterações podem ser feitas em subclasses sem mudar a lógica principal.
 
+	- Suporte a Interfaces e Herança: Trabalhar com referências mais genéricas (ex.: List, Map) sem se preocupar com a implementação específica.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FIM DAS ANOTAÇÕES SOBRE PROGRAMAÇÃO ORIENTADA A OBJETO (OOP) ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
