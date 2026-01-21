@@ -909,5 +909,143 @@ TRATAMENTO DE ERROS E EXCEÇÕES ☺
 11° Linha: independente de ter ocorrido algum tipo de erro ou não, o bloco indentado sempre será executado
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QUARTA PARTE - PROGRAMAÇÃO ORIENTADA A OBJETOS ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+O QUE É POO ☺ 
+
+- Podemos contextualizar o estudo dos paradigmas da programação a partir da evolução das formas de organizar e estruturar o código ao longo do tempo. Com o aumento da complexidade dos softwares, surgiram diferentes abordagens, onde cada uma buscando melhorar a legibilidade, manutenção e reutilização do código. Vamos ver alguns dos principais paradigmas até chegar em Programação Orientada a Objetos:
+
+	- Linguagem de baixo nível: linguagem onde tinha que dizer como o computador deve fazer algo, passo a passo.
+	
+		- Características: 
+	
+			- O código é uma sequência de comandos.
+
+			- Usa variáveis, atribuições, laços e condicionais.
+
+			- O estado do programa muda ao longo do tempo.
+
+		- Exemplos de linguagens: C, Pascal, Assembly.
+
+
+	- Linguagem estruturada: linguagem que surgiu como uma evolução da linguagem imperativa, com foco na organização e legibilidade do código.
+	
+		- Características:
+			
+			- Uso de estruturas de controle como if, else, for e while.
+
+			- Elimina o uso excessivo do goto.
+
+			- Código dividido em blocos lógicos.
+
+		- Exemplos de linguagens: C, Pascal, Fortran.
+
+
+	- Linguagem procedural: linguagem que organiza o programa em procedimentos ou funções reutilizáveis.
+	
+		- Características:
+	
+			- O programa é dividido em funções.
+
+			- Dados e funções são separados.
+
+			- Facilita a reutilização de código.
+
+		- Exemplos de linguagens: C, Pascal.
+
+
+	- Linguagem modular: linguagem que permite dividir o sistema em módulos independentes, cada um com uma responsabilidade específica.
+	
+		- Características:
+	
+			- Separação do código em arquivos ou módulos.
+
+			- Facilita manutenção e trabalho em equipe.
+
+			- Melhora a organização de projetos grandes.
+
+		- Exemplos de linguagens: C, Python, JavaScript.
+
+
+	- Linguagem orientada a objetos (OOP): linguagem que modela o sistema com base em objetos, representando entidades do mundo real.
+	
+		- Características:
+	
+			- Uso de classes e objetos.
+		
+			- Encapsulamento de dados e comportamentos.
+
+			- Suporte a herança, polimorfismo e abstração.
+
+		- Exemplos de linguagens: Java, C#, C++, Python.
+
+--------------------------------------------------------------------------------------------------->
+
+- E por que a Programação Orientada a Objetos foi criada? Ela foi desenvolvida com o principal objetivo em resolver problemas ao unir dados e comportamentos em uma mesma estrutura, chamada objeto, permitindo uma modelagem mais próxima do mundo real, facilitando a manutenção, a escalabilidade e o desenvolvimento de sistemas grandes e complexos.
+
+--------------------------------------------------------------------------------------------------->
+
+- OOAD(Object Oriented Analysis and Design): Quando vamos fazer um projeto que vai utilizar OOP, temos o conceito de OOAD. Ele é um processo/metodologia usado para analisar um problema e projetar um sistema usando os conceitos da Programação Orientada a Objetos. Podemos separar OOAD em dois tópicos, OOA e OOD. Veja como cada um trabalha:
+
+	- Analysis Orientada a Objetos (OOA): A Analysis foca em entender o problema, não em como programar. Suas tarefas são:
+
+		- Identificação de objetos e classes (Cliente, Pedido, Produto…).
+
+		- Definição de atributos (nome, preço, id…).
+
+		- Definição de comportamentos (métodos).
+
+		- Relações entre objetos: Associação, Herança, Agregação / Composição.
+
+
+	- Desing Orientado a Objetos (OOD): O Desing pega tudo que foi entendido na análise e transforma em uma estrutura técnica pronta para ser implementada. Suas tarefas são:
+
+		- Definição de classes finais.
+
+		- Definição de interfaces.
+
+		- Organização de pacotes/camadas.
+
+		- Aplicação de princípios OO (SOLID, encapsulamento, etc.).
+
+		- Escolha de padrões de projeto (Factory, Singleton, etc.).
+
+--------------------------------------------------------------------------------------------------->
+
+- UML(Unified Modeling Language): Outro conceito importante também que se liga com OOAD é o de UML. Ele é uma linguagem de modelagem visual usada para descrever, visualizar, projetar e documentar sistemas de software, principalmente sistemas orientados a objetos. UML foi criado com o principal objetivo de padronizar a forma de representar sistemas, porque cada empresa usava símbolos diferentes. Com UML, qualquer pessoa que conhece o padrão consegue:
+
+	- Entender o sistema.
+
+	- Analisar sua estrutura.
+
+	- Ver comportamentos e fluxos.
+
+	- Facilitar comunicação entre analistas, devs e clientes.
+
+- Em resumo UML é como se fosse a ferramenta visual usada no processo de análise e projeto OOAD.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+- continuar em aula 02
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 FIM DAS ANOTAÇÕES DE PYTHON ☺
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
