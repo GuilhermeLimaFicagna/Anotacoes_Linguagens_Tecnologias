@@ -1,0 +1,675 @@
+ANOTAÇÕES SOBRE SQL ☺
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SQL (Structured Query Language)
+
+- É a linguagem padrão utilizada para se comunicar com bancos de dados relacionais. Por meio dela, é possível criar, consultar, atualizar e remover informações armazenadas em tabelas de forma organizada e segura. O SQL está presente na maioria dos sistemas utilizados no dia a dia, como aplicativos, sites, sistemas bancários, plataformas de vendas e softwares corporativos. E abordando mais os conceito de SQL, Vamos ver um pouco sobre os seguintes conteúdos: 
+	
+	- Query
+	
+	- Diagrama Entidade Relacionamento (DER).
+
+	- Conceito das DLs  ******************************************************
+
+	- Criação de DATABASES e TABLES.
+
+	- INSERT INTO 
+
+	- ALTER TABLE
+
+	- SELECT, SELECT FROM, SELECT LIMIT, SELECT AS, SELECT ORDER BY.
+
+	- Comentários
+
+	- Filtros (WHERE, AND, OR)
+
+	- Funções escalares 
+
+	- Funções de agregação (SUM, COUNT, AVG)
+
+	- GROUP BY
+
+	- HAVING *****************************************
+ 
+	- JOIN
+
+- Esses são alguns dos conteúdos e conceitos que compõem e fazem parte do SQL. E vamos desenvolver esses conteúdos e conceitos de SLQ utilizando com base a SGBD MySQL.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QUERY
+
+- Query é qualquer comando SQL enviado ao banco para manipular ou consultar dados. Por exemplo, usando um tabela como base, podemos mostrar o nome e a idade de todos os clientes maiores de 18:
+
+		|--------------------------------------------------------------------------|
+		|                                Pessoas                                   |
+		|--------------------------------------------------------------------------|
+		|   ID   ||         Nome Completo         ||   Idade   ||      Cidade      |
+		|--------------------------------------------------------------------------|
+		|   1    ||        Ana Beatriz Silva      ||    16     ||     Curitiba     |
+		|--------------------------------------------------------------------------|
+		|   2    ||        João Pedro Santos      ||    14     ||      Pinhais     |
+		|--------------------------------------------------------------------------|
+		|   3    ||        Guilherme Andrade      ||    19     ||      Colombo     |
+		|--------------------------------------------------------------------------|
+		|   4    ||        Larissa Monteiro       ||    27     ||     São Paulo    |
+		|--------------------------------------------------------------------------|
+
+	- Para retornar o nome e a idade de todos os clientes maiores de 18, utilizamos esse comando em SQL:
+
+		1° SELECT nome, idade 
+		2° FROM clientes 
+		3° WHERE idade > 18;
+
+- Essa consulta(Query) nos retornaria o nome e a idade de pessoas maiores de 18 anos. Que no caso são:
+
+		|--------------------------------------------------------------------------|
+		|                                Pessoas                                   |
+		|--------------------------------------------------------------------------|
+		|   ID   ||         Nome Completo         ||   Idade   ||      Cidade      |
+		|--------------------------------------------------------------------------|
+		|   1    ||        Ana Beatriz Silva      ||    16     ||     Curitiba     |
+		|--------------------------------------------------------------------------|
+		|   2    ||        João Pedro Santos      ||    14     ||      Pinhais     |
+		|--------------------------------------------------------------------------|
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+DIAGRAMA ENTIDADE RELACIONAMENTO (DER)
+
+- O Diagrama Entidade Relacionamento é um diagrama visual usado para planejar como o banco de dados vai ser antes de criar ele de verdade no SQL. Veja um exemplo as seguir:
+
+
+	|--------------------|                            |-----------------------|
+	|       User         |                            |     users_roles       |
+	|--------------------|                            |-----------------------|                            |-----------------------|
+	| PK  |  id          |-(1,1)----------------(1,n)-| PK | FK |   user_id   |                            |         roles         |
+	|--------------------|      |                     |-----------------------|                            |-----------------------|
+	|     |  first_name  |      |                     | PK | FK |   role_id   |-(1,n)----------------(1,1)-| PK  |      id         |
+	|--------------------|      |                     |-----------------------|                            |-----------------------|
+	|     |  last_name   |      |                                                                          |     |     name        |
+	|--------------------|      |                                                                          |-----------------------|
+	|     |  email       |      |                     |-----------------------|       
+	|--------------------|      |                     |       profiles        |
+	|     |  password    |      |                     |-----------------------|
+	|--------------------|      |                     | PK  |      id         |
+				    |			  |-----------------------|
+				    |			  |     |   description   |
+				    |			  |-----------------------|
+				    ---------------(0,1)--| FK  |    user_id      |
+							  |-----------------------|
+
+
+- E para entender melhor, vamos ver as características de cada peça que o compõe:
+
+	- Entidades: São os objetos principais do sistema, aquilo que vira tabela no banco de dados.
+
+		- EX: Cliente, Produto, Pedido, Usuário e etc...
+
+
+	- Atributos: São as características das entidades, ou seja, as colunas da tabela.
+
+		- EX: id_cliente, nome, idade, email e etc...
+
+
+	- PK(Primary Key): É o campo que identifica unicamente cada registro. Também tem algumas características:
+
+		- Não se repete, não pode ser nula e também identifica cada linha da tabela.
+
+			- EX: (PK) id_cliente, (PK) id_produto e etc..
+
+
+	- FK(Foreign Key): Ela referência um campo já existente em outra tabela.
+
+		- EX: A tabela Profile tem User_id como FK. Ela aponta para o id da tabela User.
+
+
+	- Relacionamentos: é o vinculo entre duas entidades. Normalmente serve para mostrar como os dados se conectam dentro do banco de dados. Antes de abordarmos os 3 tipos de Relacionamento temos que entender sobre Obrigatoriedade.
+
+		- Obrigatoriedade: Diz a respeito sobre o vinculo que as entidades vão ter, se ela vai ser opcional ou não. E para isso temos uma tabela explicativa:
+
+			|------------------------||-------------------------------------------|
+			|        Símbolo         ||                  Significado              |
+			|------------------------||-------------------------------------------|
+			|         (1,1)          ||  Obrigatório e único (exatamente 1)       |
+			|------------------------||-------------------------------------------|		
+			|         (0,1)          ||  Opcional e único (zero ou 1)             |
+			|------------------------||-------------------------------------------|
+			|         (1,N)          ||  Obrigatório e muitos (pelo menos 1)      |
+			|------------------------||-------------------------------------------|
+			|         (0,N)          ||  Opcional e muitos (zero ou vários)       |
+			|------------------------||-------------------------------------------|
+
+
+			- Agora que entendemos sobre obrigatoriedade, podemos ver sobre os 3 tipos de relacionamento de entidade.
+
+		- 1:1 One-to-One: Uma entidade A se relaciona com exatamente uma entidade B, e vice-versa:
+
+			- EX: Um Usuário pode ou não pode ter um Perfil.
+
+		- 1:N One-to-Many: Uma entidade A pode estar ligada a várias entidades B, mas cada entidade B está ligada apenas a uma entidade A, e vice-versa:
+
+			- EX: Um Usuário pode ou não pode ter um ou muitos Perfis.
+
+		- N:M Many-to-Many: Várias entidades A podem se relacionar com várias entidades B, e vice-versa:
+
+			- EX: Muitos usuários podem ter muitos Roles.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CRIAÇÃO DE DATABASES
+
+- Para a criação da Base de dados podemos usar um comando simples, sem nenhuma configuração explícita, veja:
+
+	1° CREATE DATABASE cadastro;
+
+	- Com esse comando vamos ter uma configuração um pouco mal estruturada, por conta do " charcter set " e " collate ". que definem os caracteres e as regras de ordenação. Esse mal habito pode causar:
+	
+		- Problemas com acento.
+
+		- Problemas com emoji.
+
+		- Diferenças de comportamento entre ambientes (PC, servidor, produção).
+
+
+- Para solucionar esses problemas, podemos definir um " charcter set " e " collate " default. Veja a seguir:
+
+	1° CREATE DATABASE cadastro
+	2° DEFAULT CHARACTER SET utf8mb4
+	3° DEFAULT COLLATE utf8mb4_general_ci;
+
+	- Agora vamos ter uma configuração bem melhor estruturada, Por conta da especificações:
+
+		- DEFAULT CHARACTER SET utf8mb4: Suporta acentos(á, é, ç, etc.), caracteres especiais e também emojis.
+
+		- DEFAULT COLLATE utf8mb4_general_ci: Define como os textos serão comparados
+
+
+- E as principais vantagens de se usar esse tipo de definição é:
+
+	- Comportamento consistente em qualquer ambiente
+
+	- Evita bugs de encoding(Codificação de caracteres)
+
+--------------------------------------------------------------------------------------------------->
+
+- Podemos deletar um banco de dados também, caso seja necessário. Veja a seguir:
+
+	1° DROP DATABASE cadastro;
+
+	- Esse comando deleta tanto a base de dados quanto as tabelas que nela contem.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CRIAÇÃO DE TABLES
+
+- Antes de criar uma tabela precisamos selecionar em qual banco de dados queremos criar a tabela. e para isso usamos esse comando:
+
+	1° USE cadastro;
+
+	- A partir daí, todos os comandos vão agir nesse banco.
+
+--------------------------------------------------------------------------------------------------->
+
+- Parecido com a criação da Base de dados, podemos usar um comando simples, sem nenhuma configuração explícita para criar uma tabela, veja:
+
+	1° CREATE TABLE pessoa(
+	2°     nome varchar(30),
+	3°     idade tinyint(3),
+	4°     sexo char(1),
+	5°     peso float,
+	6°     altura float,
+	7°     nacionalidade varchar(20)
+	8° );
+
+	- Esse comando cria uma tabela básica, focada apenas em armazenar dados, sem muitas regras. Esse mal habito pode causar:
+
+		- Cadastros multiplicados. Por não ter chave primária. Não existe um identificador único para cada pessoa.
+
+		- Bugs de enconding. Por não ter restrições(NOT NULL, DEFAULT, etc.. ).
+
+		- Menor controle dos dados. Por conta da tipagem genérica.
+
+
+- Para solucionar esses problemas, podemos passar determinados parâmetros que são boas praticas de programação. Veja a seguir:
+
+	1° CREATE TABLE pessoas (
+	2°     id INT NOT NULL AUTO_INCREMENT,
+	3°     nome VARCHAR(30) NOT NULL,
+	4°     nascimento DATE,
+	5°     sexo ENUM('M','F'),
+	6°     peso DECIMAL(5,2),
+	7°     altura DECIMAL(3,2),
+	8°     nacionalidade VARCHAR(20) DEFAULT 'Brasil',
+	9°     PRIMARY KEY (id)
+	10° ) DEFAULT CHARSET = utf8;
+
+	- Agora temos muito mais parâmetros, assim deixando a tabela bem melhorar estruturada. Veja as principais adições: 
+			
+		- Restrições de dados: 
+
+			- NOT NULL: impede valores vazios.
+
+			- DEFAULT 'Brasil': define valor padrão.
+
+			- DEFAULT CHARSET = utf8: garante suporte correto a acentuação.
+		
+		- Primary Key():
+
+			- AUTO_INCREMENT: garante um identificador único automático.
+
+			- Garante que não aja cadastros duplicados. 
+
+		- Tipagem adequada:
+
+			- ENUM('M','F'): limita valores possíveis para sexo.
+
+			- DECIMAL: traz mais precisão para peso e altura.
+
+			- DATE para nascimento, permitindo cálculos de idade.
+
+
+- E as principais vantagens de se usar esse tipo de definição é:
+
+	- integridade, consistência e qualidade dos dados.
+
+--------------------------------------------------------------------------------------------------->
+
+- Podemos deletar uma tabela também, caso seja necessário. Veja a seguir:
+
+	1° DROP TABLE pessoa;
+
+	- Esse comando deleta somente a tabela e não a base de dados que contem a tabela a ser deletada.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO
+
+- Comando bastante utilizado, que serve para inserir novos registros dentro de uma tabela do banco de dados. Veja como o comando funciona:
+
+	1° INSERT INTO pessoas(id, nome, nascimento, sexo, peso, altura, nacionalidade)
+	2° VALUES (DEFAULT, 'Bia', '2007-03-22', 'F', '49.6', '1.70', DEFAULT);
+
+	- Com esse comando vamos " inserir em(INSERT INTO) " pessoas os valores(VALUES) passados como parâmetros.
+
+
+- Se quisermos ainda podemos fazer de uma segunda forma. Que é não especificando os atributos da entidade. veja:
+
+	1° INSERT INTO pessoas
+	2° VALUES (DEFAULT, 'Gabriel', '2007-08-13', 'F', '49.6', '1.70', DEFAULT);
+
+	- Ainda vamos continuar tendo o mesmo resultado da primeira versão
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ALTER TABLE
+
+- Esse comando é usado para modificar a estrutura de uma tabela que já existe, sem apagar os dados que ela contém. E ele tem algumas variações. Veja a seguir:
+
+	- ALTER TABLE ADD: Comando que adiciona uma coluna a tabela:
+
+		1° ALTER TABLE pessoas
+		2° ADD COLUMN profissao varchar(10);
+
+		- Esse comando vai adicionar no final das colunas uma coluna profissao.
+
+
+	- ALTER TABLE DROP: Comando que remove uma coluna da tabela:
+
+		1° ALTER TABLE pessoas
+		2° DROP COLUMN profissao;
+
+		- Esse comando vai remover a coluna profissao.
+
+
+	- ALTER TABLE MODIFY: Comando usada para alterar o tipo ou restrições de uma coluna existente:
+
+		1° ALTER TABLE pessoas
+		2° MODIFY COLUMN profissao varchar(20) DEFAULT '';
+
+		- Esse comando vai mudar o tipo de profissao para " varchar(20) " e colocar como vazio caso a pessoa não tenha profissao.
+
+
+	- ALTER TABLE CHANGE: Comando usada para renomear uma coluna, porem é preciso colocar novamente o tipo ou restrições(caso aja):
+
+		1° ALTER TABLE pessoas
+		2° CHANGE COLUMN profissao prof varchar(20) DEFAULT '';
+
+		- Esse comando vai mudar o nome de profissao para " prof ".
+
+
+	- ALTER TABLE RENAME: Comando usada para renomear a tabela:
+
+		1° ALTER TABLE pessoas
+		2° RENAME TO usuarios;
+
+		- Esse comando vai alterar o nome da tabela pessoas para usuarios.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT
+
+- Comando usado para fazer uma Query de dados que estão armazenados em um banco de dados, e existem alguns tipos de select que podemos usar:
+
+	- SELECT FROM: O FROM define a origem dos dados e o conjunto inicial de registros sobre o qual o SELECT irá operar. Por exemplo:
+
+		1° SELECT *
+		2° FROM Tabela;
+
+		- Isso nos retornaria todas os colunas que estão em " Tabela ".
+
+		1° SELECT Name
+		2° FROM Tabela;
+
+		- Isso nos retornaria todos os Nomes que estão em " Tabela ".
+																	       * O que vem após o SELECT é chamado de select list
+																		 responsável pela projeção dos dados solicitados. *
+	- SELECT AS: O AS redefine o nome da coluna original sobre o qual o SELECT irá operar. Por exemplo:
+
+		1° SELECT 
+		2°     Name AS "Nome_Pessoa"
+		3°     Age AS "Idade_Pessoa"
+		4° FROM Tabela;
+
+		- Isso nos retornaria as colunas nome e idade e idade com os nomes diferentes. "Nome_Pessoa" e "Idade_Pessoa".
+
+
+	- SELECT LIMIT: O LIMIT define a quantidade de registros retornados por uma consulta. Por exemplo: 
+
+		1° SELECT Name
+		2° FROM Tabela
+		3° LIMIT 2;
+
+		- Isso nos retornaria apenas 2 Nomes que estão em " Tabela ".
+
+
+	- SELECT ORDER BY: O ORDER BY define a ordenação dos dados retornados por um SELECT, podendo ser crescente ou decrescente e baseada em uma ou mais colunas. Por exemplo: 
+
+		1° SELECT Name
+		2° FROM Tabela
+		3° ORDER BY Name;
+
+		- Isso nos retornaria os Nomes que estão na " Tabela " em ordem Ascendente.
+
+		1° SELECT Name
+		2° FROM Tabela
+		3° ORDER BY Name DESC;
+
+		- Isso nos retornaria os Nomes que estão na " Tabela " em ordem Descendente.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+COMENTÁRIOS
+
+- Podemos usar comentários para esclarecer algum ponto ou deixar algum aviso na query. E existem 3 tipos de comentários. Veja as seguir:
+
+	- # : Comentário de uma linha só
+
+	- -- : Comentário de uma linha só (Igual o " # ". Porem tem que dar um espaço antes de começar a escrever)
+
+	- /* */ : Comentário de bloco. Para comentar em varias linhas.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WHERE
+
+- A cláusula WHERE é responsável por definir critérios de filtragem em uma consulta SQL. Ela determina quais registros de uma tabela devem ser considerados na execução da query, permitindo trabalhar apenas com os dados relevantes para a consulta. E para intender Melhor vamos ver alguns exemplos de WHERE:
+
+	- WHERE with Numbers: Podemos usar como exemplo, uma query onde queremos somente os produtos que tem o valor a cima 1.000 R$. Teremos algo assim:
+
+		1° SELECT * FROM Produtos
+		2° WHERE Preco_Unit > 1000;
+	
+		- Esse filtro ira nos retornar apenas os produtos com valores acima de 1.000 R$.
+
+
+	- WHERE with Strings: Podemos usar como exemplo, uma query onde queremos somente os produtos que tem o nome da marca igual a SONY. Teremos algo assim:
+
+		1° SELECT * FROM Produtos
+		2° WHERE Marca_Produto = 'SONY';
+	
+		- Esse filtro ira nos retornar apenas os produtos com o nome igual a " SONY ".
+
+
+	- WHERE with Dates: Podemos usar como exemplo, uma query onde queremos somente os clientes que tem a da data de nascimento de 1970 pra cima. Teremos algo assim:
+
+		1° SELECT * FROM Clientes
+		2° WHERE Data_Nascimento > '1970-00-00';
+	
+		- Esse filtro ira nos retornar apenas os clientes que são nascidos do dia 01/01/1970 para cima.
+
+--------------------------------------------------------------------------------------------------->
+
+- Também podemos combinar filtros. Assim criando uma possibilidade maior de flexibilidade nos filtros. E para pode fazer isso, usamos operadores lógicos. Veja o exemplo as seguir:
+
+	- Podemos usar como exemplo uma situação onde queremos apenas produtos com valor abaixo de 1.000 R$, com o nome de SONY ou DELL. Teremos algo assim:
+
+		1° SELECT * FROM Produtos
+		2° WHERE Preco_Unit < 1000 AND Marca_Produto = 'SONY' OR Marca_Produto = 'DELL';
+
+		- Esse filtro ira nos retornar apenas os produtos com valor abaixo de 1.000 R$ e com o nome de " SONY " ou " DELL ".
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNÇÕES ESCALARES
+
+- Funções escalares são funções que operam sobre um único valor por vez e retornam um único valor para cada linha da tabela. Um exemplo de uma função escalar é o UPPER(), que deixa todas as letras em maiúsculas:
+
+	1° SELECT UPPER(nome) FROM usuários;
+
+	- Irá retorna um valor para cada linha da tabela.
+
+--------------------------------------------------------------------------------------------------->
+
+- Podemos fazer funções escalares também, Veja as seguir um exemplo de função escalar que verifica se o número é par ou impar: 
+
+	1°  DELIMITER $$
+	2°
+	3°  CREATE FUNCTION ParInp(num INT)
+	4°  RETURNS VARCHAR(30)
+	5°  DETERMINISTIC
+	6°  BEGIN
+	7°      DECLARE n1 VARCHAR(30);
+	8°      
+	9°      IF MOD(num, 2) = 0 THEN									      * Funções escalares podem ser funções nativas do MySQL (como UPPER, LOWER)
+	10°         SET n1 = 'par';										  ou funções criadas pelo usuário, desde que retornem um único valor. *
+	11°     ELSE
+	12°         SET n1 = 'impar';
+	13°     END IF;
+	14°     
+	15°     RETURN n1;
+	16° END $$
+	17°
+	18° DELIMITER ;
+	19°
+	20° SELECT ID_Cliente, ParInp(ID_Cliente) FROM clientes;
+
+
+- Para entender melhor alguns dos elementos do código vamos velos em uma tabela a seguir:
+
+
+	||----------------------||---------------------------------------------------------------||
+	||        Elemento      ||                       Explicação                              ||
+	||----------------------||---------------------------------------------------------------||
+	|| DELIMITER $$         || Altera temporariamente o delimitador padrão (;).              ||
+	||                      || Isso é necessário para que o MySQL não finalize               ||
+	||                      || a função antes do END. O $$ indica onde a função termina.     ||
+	||----------------------||------------------------------------------------------------- -||
+	|| DELIMITER ;          || Restaura o delimitador padrão do MySQL para ;                 ||
+	||                      || após a criação da função ou procedure.                        ||
+	||----------------------||---------------------------------------------------------------||
+	|| RETURNS              || Define o tipo de dado que a função vai retornar               ||
+	||                      || quando for chamada (ex: INT, VARCHAR, DECIMAL).               ||
+	||----------------------||---------------------------------------------------------------||
+	|| DETERMINISTIC        || Indica que a função sempre retorna o mesmo resultado          ||
+	||                      || para os mesmos valores de entrada.                            ||
+	||                      || Ajuda o MySQL em otimizações e replicação.                    ||
+	||----------------------||---------------------------------------------------------------||
+	|| BEGIN                || Marca o início do bloco de código da função.                  ||
+	||                      || Dentro dele ficam declarações, IF, SET, RETURN etc.           ||
+	||----------------------||---------------------------------------------------------------||
+	|| END                  || Marca o fim do bloco de código da função.                     ||
+	||                      || Deve ser fechado com o delimitador definido (ex: $$).         ||
+	||----------------------||---------------------------------------------------------------||
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNÇÕES DE AGREGAÇÃO
+
+- Funções de agregação são funções que operam sobre um conjunto de linhas e retornam um único valor como resultado. Diferente das funções escalares, que retornam um valor para cada linha, as funções de agregação resumem vários registros em um único resultado. Para entender melhor vamos ver exemplos das principais funções de agregação a seguir:
+
+	- FUNÇÃO COUNT(): Ela serve para contar as linhas de uma tabela ou de um conjunto de dados retornado por uma consulta. Veja três exemplos de como podemos usar ela:
+
+		- COUNT(*): Conta todas as linhas, inclusive as que possuem valores NULL nas colunas. Teremos algo assim:
+
+			1° SELECT COUNT(*) FROM Clientes; 
+		
+			- Retorna o total de registros da tabela Clientes.
+
+
+		- COUNT(coluna): Conta apenas as linhas em que a coluna NÃO é NULL. Teremos algo assim:
+
+			1° SELECT COUNT(Telefone) FROM Clientes;	
+		
+			- Só conta usuários que têm Telefone preenchido e retorna.
+
+
+		- COUNT(DISTINCT coluna): Conta valores diferentes, ignorando repetições e valores NULL. Teremos algo assim:
+
+			1° SELECT COUNT(DISTINCT Escolaridade) FROM Clientes;	
+		 
+			- Retorna quantas Escolaridades diferentes existem na tabela.
+
+
+	- FUNÇÃO SUM(): Usado para somar valores numéricos de uma coluna. Veja um exemplos a seguir:
+
+		1° SELECT SUM(Renda_Anual) FROM Clientes;
+
+		- Retorna a soma de todos os valores da coluna Renda_Anual.
+
+
+	- FUNÇÃO AVG(): Usado para fazer a média dos valores numéricos de uma coluna. Veja um exemplos a seguir:
+
+		1° SELECT AVG(Receita_Venda) FROM Pedidos;
+
+		- Retorna a média de todos os valores da coluna Receita_Venda.
+
+
+	- FUNÇÃO MIN(): Usado para encontrar o menor valor de uma coluna. Veja um exemplos a seguir:
+
+		1° SELECT MIN(Custo_Unit) FROM Pedidos;
+
+		- Retorna o menor valor da coluna Custo_Unit.
+
+
+	- FUNÇÃO MAX(): Usado para encontrar o maior valor de uma coluna. Veja um exemplos a seguir:
+
+		1° SELECT MAX(Custo_Unit) FROM Pedidos;
+
+		- Retorna o maior valor da coluna Custo_Unit.
+
+
+- E diferente das funções escalares, as funções de agregação não podem ser criadas. Por conta de fazerem parte do motor interno de execução do SGBD(Data Base Management System), e não apenas da linguagem SQL.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+GROUP BY
+
+- Essa cláusula tem a função de agrupar linhas que têm o mesmo valor em uma ou mais colunas, para que você possa aplicar funções de agregação sobre esses grupos. Veja a seguir um exemplo utilizando uma tabela de clientes(Com 100 pessoas), onde nela temos uma coluna de sexo, onde varia de sexo feminino a masculino:
+	
+	- Digamos que queremos ver a quantidade de diferentes sexos da tabela cliente. teremos algo assim:
+
+		1° SELECT COUNT(sexo) FROM clietes;	
+
+		- Nos retornara 100.
+
+	- Mas e se quisermos descobrir a quantidade de cada sexo? Teremos que fazer dessa forma:
+
+		1° SELECT
+		2°     sexo,
+		3°     COUNT(sexo) AS "Quantidade"
+		4° FROM clientes
+		5° GROUP BY sexo;
+
+		- Irá nos retornar que 48 pessoas são do sexo masculino e 52 pessoas são do sexo feminino.
+
+		
+- Em suma ele é usado principalmente quando você precisa resumir dados, transformando várias linhas em um resultado agrupado. 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+JOIN
+
+- É a clausula que permite juntar dados de duas ou mais tabelas relacionadas (geralmente uma PK <-> FK) em uma única consulta. E existem alguns tipos de JOIN veja a seguir:
+
+	- INNER JOIN: Uni registros de duas tabelas quando existe correspondência entre PK e FK. Se não houver correspondência, o registro é ignorado. Veja um exemplo do código a seguir:
+
+		1° SELECT *
+		2° FROM produtos									* A clausula " ON " é utilizada para definir a condição de ligação entre as tabelas. Nesse caso sendo
+		3° INNER JOIN pedidos									     produtos.ID_Produto --> Primary Key		e		pedidos.ID_Produto → Foreign Key *
+		4°     ON pedidos.ID_Produto = produtos.ID_Produto;					
+
+		- Essa query vai nos retornar a junção de " produtos " com " pedidos ".
+
+
+	- LEFT JOIN: Retorna todos os registros da tabela da esquerda + os registros correspondentes da tabela da direita. Porem agora se não houver correspondência, o registro não será mas ignorado, mas sim vem como " null ". Veja um exemplo do código a seguir:
+
+		1° SELECT
+		2°     pessoas.nome,
+		3°     cidades.nome
+		4° FROM pessoas
+		5° LEFT JOIN cidades
+		6°     ON pessoas.ID_cidade = cidades.ID_cidade;
+
+		- Essa query vai nos retornar todas as pessoas, independente delas terem uma cidade cadastrada ou não. Para as pessoas sem cidade, no lugar delas aparece " null "
+		
+
+	- RIGHT JOIN: Retorna todos os registros da tabela da direita + os registros correspondentes da tabela da esquerda, faz a mesma coisa que o " LEFT JOIN ", porem o inverso. Também colocando " null " se não houver correspondência. Veja um exemplo do código a seguir:
+
+		1° SELECT
+		2°     cidades.nome,
+		3°     climas.nome
+		4° FROM climas
+		5° RIGHT JOIN cidades
+		6°     ON cidades.ID_cidade = climas.ID_cidade;
+
+		- Essa query vai nos retornar todas as cidades, independente delas terem uma clima cadastrada ou não. Para as cidades sem clima, no lugar delas aparece " null "
+
+
+- Para melhor visualização das funcionalidades do JOIN, veja a tabela a seguir:
+
+
+		||------------------||-------------------------------------------||-----------------------------------------------||
+		||       JOIN       ||              O QUE RETORNA                ||              QUANDO USAR                      ||
+		||------------------||-------------------------------------------||-----------------------------------------------||
+		|| INNER JOIN       || Apenas registros que existem              || Quando você quer SOMENTE                      ||
+		||                  || nas DUAS tabelas                          || dados relacionados                            ||
+		||                  ||                                           || Ex: clientes que têm pedidos                  ||
+		||------------------||-------------------------------------------||-----------------------------------------------||
+		|| LEFT JOIN        || Todos os registros da tabela              || Quando a tabela da ESQUERDA                   ||
+		||                  || da ESQUERDA + correspondentes             || não pode faltar                               ||
+		||                  || da direita                                || Ex: todos os clientes,                        ||
+		||                  ||                                           || mesmo os que não têm pedidos                  ||
+		||------------------||-------------------------------------------||-----------------------------------------------||
+		|| RIGHT JOIN       || Todos os registros da tabela              || Quando você quer preservar                    ||
+		||                  || da DIREITA + correspondentes              || a tabela da DIREITA                           ||
+		||                  || da esquerda                               || (pouco usado, dá pra inverter                 ||
+		||                  ||                                           || e usar LEFT JOIN)                             ||
+		||------------------||-------------------------------------------||-----------------------------------------------||
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
