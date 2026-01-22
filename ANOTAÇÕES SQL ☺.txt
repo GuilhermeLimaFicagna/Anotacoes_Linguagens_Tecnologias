@@ -13,9 +13,11 @@ SQL (Structured Query Language)
 
 	- Criação de DATABASES e TABLES.
 
-	- INSERT INTO 
+	- INSERT INTO.
 
-	- ALTER TABLE
+	- ALTER TABLE.
+
+	- Manipulação de linhas (UPDATE, DELETE e TRUNCATE).
 
 	- SELECT, SELECT FROM, SELECT LIMIT, SELECT AS, SELECT ORDER BY.
 
@@ -346,6 +348,47 @@ ALTER TABLE
 
 		- Esse comando vai alterar o nome da tabela pessoas para usuarios.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MANIPULAÇÃO DE LINHAS
+
+- Diferente de alter table, manipulação de linhas mexe um pouco mais a fundo. Refere-se ao conjunto de comandos usados para inserir, alterar e remover registros dentro de uma tabela. Veja os três principais comandos usados em manipulação de linhas:
+
+	- UPDATE: Serve para altera um ou mais registros de uma coluna. Veja um exemplo:
+		
+		- Temos uma pessoa chamada Beatriz com 1.65 de altura. Porem ela foi cadastrada como Bia e com 1.80 de altura. Para resolver isso podemos usar o seguinte comando:
+
+			1° UPDATE pessoas
+			2° SET nome = 'Beatriz', altura = '1.65'
+			3° WHERE nome = 'Bia';
+
+			- Vai atualizar a tabela com a informações certas.
+
+
+		- Pra intender melhor cada linha, veja a explicação de cada uma:
+			
+			1° Linha: Seleciona a tabela onde vai ser feita  atualização no registro.
+
+			2° Linha: SET fala as modificações que iram ser feitas. 
+
+			3° Linha: Onde encontrar a ocorrência passada no WHERE, ira alterar a linha. Se tiver mais de um nome " Bia ", ira mudar em todas as linhas.
+
+
+	- DELETE: Serve para apagar registros específicos da tabela. Veja a seguir:
+
+			1° DELETE FROM pessoas
+			2° WHERE id = '1';
+
+			- Ira apagar a linha onde o id é igual a " 1 ".
+
+
+	- TRUNCATE: Serve para apagar todos os registros de uma tabela de uma vez. Veja a seguir:
+
+			1° TRUNCATE TABLE pessoas;
+
+			- Ira apagar todos os registros da tabela pessoa.
+
+		
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 SELECT
