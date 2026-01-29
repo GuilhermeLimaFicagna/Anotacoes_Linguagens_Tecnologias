@@ -9,8 +9,6 @@ SQL (Structured Query Language)
 	
 	- Diagrama Entidade Relacionamento (DER).
 
-	- Conceito das DLs  ******************************************************
-
 	- Criação de DATABASES e TABLES.
 
 	- INSERT INTO.
@@ -31,7 +29,7 @@ SQL (Structured Query Language)
 
 	- GROUP BY
 
-	- HAVING *****************************************
+	- HAVING 
  
 	- JOIN
 
@@ -642,6 +640,19 @@ GROUP BY
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+HAVING
+
+- Parecido com a clausula WHERE. A cláusula HAVING é responsável por definir critérios de filtragem sobre grupos de dados em uma consulta SQL. Porem ela atua após o agrupamento realizado pelo GROUP BY, permitindo restringir os resultados com base em funções de agregação(coisa que não é possível com WHERE), como COUNT, SUM, AVG, MIN e MAX, retornando apenas os grupos que atendem às condições estabelecidas. Veja m exemplo asseguir:
+
+	1° SELECT Escolaridade, COUNT(*)
+	2° FROM clientes
+	3° GROUP BY Escolaridade
+	4° HAVING COUNT(*) >= 20;
+
+	- Ira nos retornar a quantidade de clientes agrupados por escolaridade, exibindo apenas as escolaridades que possuem 20 ou mais registros cadastrados na tabela clientes
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 JOIN
 
 - É a clausula que permite juntar dados de duas ou mais tabelas relacionadas (geralmente uma PK <-> FK) em uma única consulta. E existem alguns tipos de JOIN veja a seguir:
@@ -702,17 +713,3 @@ JOIN
 		||------------------||-------------------------------------------||-----------------------------------------------||
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
