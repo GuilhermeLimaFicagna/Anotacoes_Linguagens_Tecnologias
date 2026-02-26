@@ -42,14 +42,33 @@ HISTÓRIA DO GIT E DO GITHUB ☺
 
 --------------------------------------------------------------------------------------------------->
 
+TERMOS USADOS NO GITHUB
+
+- Vamos entender melhor que como GitHub funciona vamos ver algumas palavras chaves:
+
+	- Repositório: É a pasta do seu projeto no GitHub. Ele contém todos os arquivos do seu código, além de todo o histórico de versões gerenciado pelo Git. Cada projeto terá seu próprio repositório.
+
+	- Commit: É uma "foto" ou um "ponto de salvamento" do seu código em um determinado momento. Toda vez que você faz um conjunto de alterações e decide que elas estão prontas para serem salvas no histórico, você faz um commit. Cada commit tem uma mensagem descritiva do que foi alterado.
+
+	- Branch (Ramificação): Imagine a linha principal do seu desenvolvimento (o projeto funcionando). Se você quiser adicionar uma nova funcionalidade ou corrigir um bug sem afetar a linha principal, você cria uma branch. É como trabalhar em uma "cópia" temporária do código. Quando terminar e testar, você pode juntar essa branch à principal. Isso é essencial para o trabalho em equipe.
+
+	- Merge (Fusão): É o ato de combinar as alterações de uma branch (onde você estava desenvolvendo uma funcionalidade, por exemplo) de volta para a branch principal do projeto.
+
+	- Pull Request (PR): É a forma padrão de colaboração no GitHub. Quando você termina de trabalhar em uma branch e quer que suas alterações sejam incorporadas na branch principal (ou em outra), você abre um Pull Request. Isso permite que outros membros da equipe (ou o professor!) revisem seu código, comentem e sugiram melhorias antes que ele seja aceito e merged (fundido).
+
+	- Clone: Para começar a trabalhar em um repositório que já existe no GitHub, você precisa clonar ele para o seu computador local. Isso cria uma cópia local do projeto.
+
+	- Push: Depois de fazer commits com suas alterações localmente, você precisa enviar essas alterações para o repositório no GitHub para que a equipe e o professor possam vê-las. Esse processo é chamado de push.
+
+	- Pull: Para garantir que seu projeto local esteja atualizado com as últimas alterações que outros membros da equipe fizeram e enviaram para o GitHub, você precisa puxar essas alterações para o seu computador. Esse processo é chamado de pull.
+
+--------------------------------------------------------------------------------------------------->
+
 ORDEM DAS COISAS ☺
 
 - Sempre começar fazendo um commit para indicar o versionamento, depois fazer o push, para ir do repositório local para o remorto. Caso o commit seja no repositório remoto, então temos que fazer o pull, que joga nosso reposiório remoto para o local.
 
 --------------------------------------------------------------------------------------------------->
-
-aula 07
-
 
 
 
